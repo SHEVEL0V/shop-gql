@@ -1,0 +1,15 @@
+/** @format */
+
+.navContainer {
+  display: flex;
+  height: 60px;
+  box-sizing: border-box;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+@media screen and (min-width: 600px) {
+  .btn {
+    width: 120px;
+  }
+}

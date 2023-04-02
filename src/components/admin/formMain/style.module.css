@@ -1,0 +1,8 @@
+/** @format */
+
+.textInput {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
+}

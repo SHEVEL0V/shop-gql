@@ -1,0 +1,33 @@
+/** @format */
+.container {
+  display: flex;
+
+  align-items: center;
+  box-sizing: border-box;
+  padding: 5px;
+  margin: 3px;
+
+  background-color: var(--bg-color-tho);
+}
+.containerInfo {
+  display: flex;
+  align-items: center;
+}
+
+.containerImg {
+  box-sizing: border-box;
+  margin-inline: auto;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+}
+.img {
+  margin-inline: auto;
+  height: 50px;
+}
+.containerName {
+  margin-inline: 3px;
+  padding: 5px;
+
+  border-radius: 2px;
+}

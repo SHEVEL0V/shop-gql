@@ -1,0 +1,26 @@
+/** @format */
+.container {
+  box-sizing: border-box;
+  padding-inline: 15px;
+  padding-top: 30px;
+  background-color: aquamarine;
+  border: 1px solid rgba(142, 141, 141, 0.579);
+}
+.input {
+  margin-bottom: 20px;
+}
+
+.children {
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    position: fixed;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+  }
+}

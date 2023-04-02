@@ -1,0 +1,6 @@
+/** @format */
+
+.container {
+  display: flex;
+  min-height: calc(100vh - 150px);
+}
