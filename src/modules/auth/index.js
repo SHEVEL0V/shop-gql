@@ -46,15 +46,15 @@ export default function Auth() {
     setForm((state) => ({ ...state, [name]: value }));
   };
 
-  const handleAuthSuccess = ({ data }) => {
+  const handleAuthSuccess = (payload) => {
     dispatch(setButtonLogin());
-    dispatch(setUser(data.authUser));
+    dispatch(setUser(payload));
     setForm({});
   };
 
   const handleAuthGoogle = ({ token }) =>
     authGoogle({ variables: { token } })
-      .then(handleAuthSuccess)
+      .then(({ data }) => handleAuthSuccess(data.authUser))
       .catch(renderError);
 
   const handleClickButtonAuth = () =>

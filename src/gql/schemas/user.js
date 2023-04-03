@@ -7,6 +7,10 @@ export const LOGIN = gql`
     loginUser(user: $user) {
       user {
         name
+        telephone
+        avatarURL
+        delivery
+        role
       }
       token
     }
@@ -21,6 +25,7 @@ export const REGISTER = gql`
         telephone
         avatarURL
         delivery
+        role
       }
       token
     }
@@ -35,6 +40,7 @@ export const AUTH = gql`
         telephone
         avatarURL
         delivery
+        role
       }
       token
     }
@@ -44,10 +50,7 @@ export const AUTH = gql`
 export const UPDATE_USER = gql`
   mutation UpdateUser($user: InpUserUpdate) {
     updateUser(user: $user) {
-      name
-      telephone
-      avatarURL
-      delivery
+      message
     }
   }
 `;

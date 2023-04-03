@@ -12,7 +12,11 @@ import s from "./style.module.css";
 import BtbClean from "../../../UI/btnClean";
 import Btn from "../../../UI/btn";
 
-export default function FilterOrder({ setParams, updateOrder }) {
+export default function FilterOrder({
+  setParams,
+  updateOrder,
+  disabled = false,
+}) {
   const [date, setDate] = useState({});
   const [status, setStatus] = useState("");
 
@@ -24,7 +28,7 @@ export default function FilterOrder({ setParams, updateOrder }) {
   const handleClickButton = (value) =>
     value ? updateOrder(value) : updateOrder("");
 
-  const handleChangeAutoCom = (status) => setStatus(status);
+  const handleChangeAutoCom = (_, value) => setStatus(value);
 
   return (
     <div className={s.container}>
@@ -58,11 +62,21 @@ export default function FilterOrder({ setParams, updateOrder }) {
         Change status:
       </Typography>
       <div style={{ display: "flex" }}>
-        <Btn color="primary" onClick={() => handleClickButton("PENDING")}>
+        <Btn
+          disabled={disabled}
+          color="primary"
+          onClick={() => handleClickButton("PENDING")}
+        >
           pen
         </Btn>
-        <Btn onClick={() => handleClickButton("RESOLVED")}>res</Btn>
-        <Btn color="error" onClick={() => handleClickButton("REJECTED")}>
+        <Btn disabled={disabled} onClick={() => handleClickButton("RESOLVED")}>
+          res
+        </Btn>
+        <Btn
+          disabled={disabled}
+          color="error"
+          onClick={() => handleClickButton("REJECTED")}
+        >
           rej
         </Btn>
       </div>

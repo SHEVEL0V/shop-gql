@@ -23,10 +23,10 @@ export default function Options({ options = [] }) {
       {options?.map((item, ind) => (
         <According
           key={ind}
-          title={item.name}
+          title={item?.name}
           border={form[item]?.length || false}
         >
-          {item?.value?.map((el, ind) => (
+          {/* {item?.value?.map((el, ind) => (
             <div key={ind} className={s.container}>
               <span className={s.name}>{el}</span>
               <Checkbox
@@ -35,7 +35,7 @@ export default function Options({ options = [] }) {
                 onChange={handleCheckBoxObject}
               />
             </div>
-          ))}
+          ))} */}
         </According>
       ))}
       <p></p>

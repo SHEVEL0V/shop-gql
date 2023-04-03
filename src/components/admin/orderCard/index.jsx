@@ -40,8 +40,8 @@ export default function OrderCard({ data, handleCheckBox }) {
       </div>
 
       <div className={s.orderContainer}>
-        {orders?.map((el) => (
-          <div className={s.itemOrderContainer} key={el._id}>
+        {orders?.map((el, ind) => (
+          <div className={s.itemOrderContainer} key={ind}>
             <div className={s.brand}>
               <Text> brand: {el.brand}</Text>
             </div>

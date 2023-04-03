@@ -24,7 +24,9 @@ export default function CardProduct({ data }) {
   const handleClickCard = () => navigate(`/${brand}/${_id}`);
   const handleAddProducts = () => dispatch(setBasket(data));
 
-  const [addRating] = useMutation(schemasGql.RATE);
+  const [addRating] = useMutation(schemasGql.GET_RATE, {
+    refetchQueries: [{ query: schemasGql.GET_PRODUCTS }],
+  });
 
   const handleUpdateRating = (e, value) =>
     addRating({ variables: { itemId: _id, rate: value } })

@@ -9,6 +9,9 @@ import BasketIkon from "../../components/basketIcon";
 import { toast } from "react-toastify";
 import Button from "@mui/material/Button";
 
+import { useMutation } from "@apollo/client";
+import { schemasGql } from "../../gql";
+
 import s from "./style.module.css";
 
 export default function Basket() {
@@ -18,6 +21,8 @@ export default function Basket() {
 
   const qty = basket.length;
   const isClose = qty === 0;
+
+  const [addOrders] = useMutation(schemasGql.ADD_ORDER);
 
   useEffect(() => {
     if (isClose) {
@@ -30,14 +35,13 @@ export default function Basket() {
     .reduce((acc, v) => acc + v, 0);
 
   const handleClick = () => dispatch(setButtonBasket());
-  const handleOrder = () => {};
-  // addOrder({ orders: basket })
-  //   .unwrap()
-  //   .then(() => {
-  //     dispatch(removeBasket());
-  //     toast.sasses("Order accepted");
-  //   })
-  //   .catch((err) => toast.error(err));
+  const handleOrder = () =>
+    addOrders({ variables: { add: basket } })
+      .then(() => {
+        dispatch(removeBasket());
+        toast.sasses("Order accepted");
+      })
+      .catch((err) => toast.error(err));
 
   return (
     <div>

@@ -17,8 +17,8 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import s from "./style.module.css";
 
 export default function Header() {
-  const isAuth = useSelector((s) => s.auth.token);
-  const isAuthAdmin = true;
+  const isAuth = useSelector((s) => s.auth?.token);
+  const isAuthAdmin = useSelector((s) => s.auth?.user?.role) === "admin";
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { pathname } = useLocation();
@@ -58,8 +58,8 @@ export default function Header() {
               className={s.btn}
               sx={{ marginInline: "5px" }}
               variant="contained"
-              color={handleColorButton("/admin/remove")}
-              onClick={() => navigate("/admin/remove")}
+              color={handleColorButton("/admin/list")}
+              onClick={() => navigate("/admin/list")}
             >
               list
             </Button>

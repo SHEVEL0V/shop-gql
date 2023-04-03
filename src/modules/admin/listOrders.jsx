@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import OrderCard from "../../components/admin/orderCard";
-// import { useUpdateOrderMutation } from "../../services/fetch";
-// import { useGetOrderQuery } from "../../services/fetch";
+import { useQuery, useMutation } from "@apollo/client";
+import { schemasGql } from "../../gql";
 import useCheckBox from "../../hooks/useCheckBox";
 import FilterOrder from "../../components/admin/filterOrder";
 import useSearchParamsCustom from "../../hooks/useSearchParams";
@@ -13,31 +13,39 @@ import { toast } from "react-toastify";
 import s from "./style.module.css";
 
 export default function Orders() {
-  const [options, setOptions] = useState([]);
-
+  const [ids, setIds] = useState([]);
   const { setParams, params } = useSearchParamsCustom();
 
-  // const { data, isLoading } = useGetOrderQuery(params);
+  const disabled = ids.length === 0;
 
-  const { handleCheckBoxArray } = useCheckBox(setOptions);
-  // const [updateOrder] = useUpdateOrderMutation();
+  const { loading, data } = useQuery(schemasGql.GET_ORDER, {
+    variables: { query: params },
+  });
 
-  const handleUpdateOrder = (status) => {};
-  // updateOrder({ options, status })
-  //   .unwrap()
-  //   .then(() => toast.sasses("success update order"))
-  //   .catch(() => toast.error("error update order"));
+  const res = data?.getOrders || [];
+
+  const { handleCheckBoxArray } = useCheckBox(setIds);
+  const [updateOrder] = useMutation(schemasGql.UPDATE_ORDER, {
+    refetchQueries: [{ query: schemasGql.GET_ORDER }],
+  });
+
+  const handleUpdateOrder = (status) =>
+    updateOrder({ variables: { update: { ids, status } } })
+      .then(() => {
+        toast.success("success update order");
+      })
+      .catch(() => toast.error("error update order"));
 
   return (
     <div className={s.containerList}>
-      <FilterOrder setParams={setParams} updateOrder={handleUpdateOrder} />
-      <ListContainer isLoading={true}>
-        {[]?.map((el) => (
-          <OrderCard
-            key={el._id}
-            data={el}
-            handleCheckBox={handleCheckBoxArray}
-          />
+      <FilterOrder
+        setParams={setParams}
+        updateOrder={handleUpdateOrder}
+        disabled={disabled}
+      />
+      <ListContainer isLoading={loading}>
+        {res.map((el, ind) => (
+          <OrderCard key={ind} data={el} handleCheckBox={handleCheckBoxArray} />
         ))}
       </ListContainer>
     </div>

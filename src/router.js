@@ -32,7 +32,7 @@ export const router = createBrowserRouter([
         element: <PrivateRoute />,
         children: [
           { path: "add", element: <UpdateProducts page={"Add"} /> },
-          { path: "remove", element: <ListProductsAdmin /> },
+          { path: "list", element: <ListProductsAdmin /> },
           { path: "orders", element: <Orders /> },
           { path: "update/:id", element: <UpdateProducts page={"Update"} /> },
         ],

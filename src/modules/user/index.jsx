@@ -33,21 +33,14 @@ export default function UpdateUser() {
   useQuery(schemasGql.GET_USER, {
     onCompleted: ({ getUser }) => {
       setForm(getUser);
+      setUrlImg(getUser.avatarURL);
     },
   });
-
+  console.log(urlImg);
   const [updateUser] = useMutation(schemasGql.UPDATE_USER);
 
-  const newUser = {
-    file,
-    name: form?.name,
-    password: form?.password,
-    delivery: form?.delivery,
-    telephone: form?.telephone,
-  };
-
   const handleUpdateUser = () =>
-    updateUser({ variables: { user: newUser } })
+    updateUser({ variables: { user: { file, ...form } } })
       .then(() => {
         toast.success("Success update");
       })

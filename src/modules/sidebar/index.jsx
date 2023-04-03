@@ -1,5 +1,5 @@
 /** @format */
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Paper from "@mui/material/Paper";
 import Slide from "@mui/material/Slide";
 import SliderPrice from "../../components/sidebar/sliderPrice";
@@ -11,14 +11,18 @@ import Options from "../../components/sidebar/options";
 
 import { useQuery } from "@apollo/client";
 import { GET_DESCRIPTORS } from "../../gql/schemas/products";
+import { setDesc } from "../../redux/options/slice";
 
 export default function Sidebar({ children, isLoading }) {
   const store = useSelector((store) => store);
   const isOpen = store.button.menu;
+  const dispatch = useDispatch();
 
   const { setParams } = useSearchParamsCustom();
 
-  const { loading, error, data } = useQuery(GET_DESCRIPTORS);
+  const { data } = useQuery(GET_DESCRIPTORS, {
+    onCompleted: ({ getProductsDesc }) => dispatch(setDesc(getProductsDesc)),
+  });
 
   const options = data?.getProductsDesc;
 

@@ -16,6 +16,7 @@ import s from "./style.module.css";
 export default function ListProductsAdmin() {
   const { params: query } = useSearchParamsCustom();
   const [options, setOptions] = useState([]);
+  const disabled = options.length === 0;
 
   const { handleCheckBoxArray } = useCheckBox(setOptions);
 
@@ -23,7 +24,9 @@ export default function ListProductsAdmin() {
     variables: { query },
   });
 
-  const [removeProduct] = useMutation(schemasGql.REMOVE_PRODUCT);
+  const [removeProduct] = useMutation(schemasGql.REMOVE_PRODUCT, {
+    refetchQueries: [{ query: schemasGql.GET_PRODUCTS }],
+  });
 
   const products = data?.getProducts;
 
@@ -33,7 +36,11 @@ export default function ListProductsAdmin() {
   return (
     <div className={s.containerList}>
       <Sidebar options={data?.desc} isLoading={loading}>
-        <Btn onClick={handleRemoveProducts} loading={loading}>
+        <Btn
+          disabled={disabled}
+          onClick={handleRemoveProducts}
+          loading={loading}
+        >
           remove
         </Btn>
       </Sidebar>

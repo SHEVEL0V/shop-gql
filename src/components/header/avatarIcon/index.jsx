@@ -19,7 +19,7 @@ export default function AvatarIcon() {
   const [anchorElUser, setAnchorElUser] = useState(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const url = useSelector((store) => store.auth.user.picture);
+  const url = useSelector((store) => store.auth.user.avatarURL);
 
   const avatar = url || "/static/images/avatar/2.jpg";
 

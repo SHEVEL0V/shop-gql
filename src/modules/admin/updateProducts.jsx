@@ -22,7 +22,7 @@ export default function UpdateProducts({ page }) {
   const [form, setForm] = useState({});
   const [img, setImg] = useState(picture);
   const { id } = useParams();
-  const desc = {};
+  const desc = useSelector((store) => store.options.desc);
 
   const navigate = useNavigate();
 
@@ -76,13 +76,13 @@ export default function UpdateProducts({ page }) {
         <UploadImg setFile={setFile} urlImg={img} setUrlImg={setImg} />
         <div style={{ width: "100%" }}>
           <Autocomplete
-            options={desc?.type}
+            options={desc?.types}
             name="type"
             onChange={(_, v) => handleSetForm({ type: v })}
             value={form?.type || ""}
           />
           <Autocomplete
-            options={desc?.brand}
+            options={desc?.brands}
             name="brand"
             onChange={(_, v) => handleSetForm({ brand: v })}
             value={form?.brand || ""}
