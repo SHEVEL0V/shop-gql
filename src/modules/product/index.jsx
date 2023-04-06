@@ -18,13 +18,13 @@ export default function Product() {
   const { data, loading } = useQuery(GET_PRODUCTS_BY_ID, {
     variables: { id },
   });
-
+  const product = data?.getProductById || {};
   const dispatch = useDispatch();
   const { isDisable } = useItemByBasket(id);
 
-  const { img, price, name, desc, options } = data?.getProductById || {};
+  const { img, price, name, desc, options } = product;
 
-  const handleAddProducts = () => dispatch(setBasket(data));
+  const handleAddProducts = () => dispatch(setBasket(product));
 
   return loading ? (
     <Loader />

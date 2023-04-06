@@ -14,8 +14,6 @@ import s from "./style.module.css";
 export default function ListProducts() {
   const { params: query } = useSearchParams();
 
-  console.log(query);
-
   const { loading, data } = useQuery(schemasGql.GET_PRODUCTS, {
     variables: { query },
   });
