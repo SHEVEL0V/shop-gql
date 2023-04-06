@@ -19,7 +19,8 @@ function App() {
   });
 
   const client = new ApolloClient({
-    cache: new InMemoryCache({ addTypename: false }),
+    connectToDevTools: true,
+    cache: new InMemoryCache(),
     link: authLink.concat(
       createUploadLink({
         uri: process.env.REACT_APP_BASE_URL,

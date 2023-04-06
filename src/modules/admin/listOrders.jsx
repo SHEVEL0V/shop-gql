@@ -18,20 +18,19 @@ export default function Orders() {
 
   const disabled = ids.length === 0;
 
-  const { loading, data } = useQuery(schemasGql.GET_ORDER, {
+  const { loading, data, refetch } = useQuery(schemasGql.GET_ORDER, {
     variables: { query: params },
   });
 
   const res = data?.getOrders || [];
 
   const { handleCheckBoxArray } = useCheckBox(setIds);
-  const [updateOrder] = useMutation(schemasGql.UPDATE_ORDER, {
-    refetchQueries: [{ query: schemasGql.GET_ORDER }],
-  });
+  const [updateOrder] = useMutation(schemasGql.UPDATE_ORDER);
 
   const handleUpdateOrder = (status) =>
     updateOrder({ variables: { update: { ids, status } } })
       .then(() => {
+        refetch();
         toast.success("success update order");
       })
       .catch(() => toast.error("error update order"));

@@ -1,6 +1,22 @@
 /** @format */
 import { gql } from "@apollo/client";
 
+const res = gql`
+  {
+    name
+    price
+    rating
+    img
+    type
+    brand
+    desc
+    params {
+      name
+      value
+    }
+  }
+`;
+
 export const GET_DESCRIPTORS = gql`
   query Query {
     getProductsDesc {
@@ -34,42 +50,24 @@ export const GET_PRODUCTS = gql`
 
 export const GET_PRODUCTS_BY_ID = gql`
   query Query($id: String) {
-    getProductById(id: $id) {
-      name
-      price
-      rating
-      img
-      type
-      brand
-      desc
-      params {
-        name
-        value
-      }
-    }
+    getProductById(id: $id) ${res}
   }
 `;
 
 export const ADD_PRODUCT = gql`
   mutation AddProduct($add: InpProduct) {
-    addProduct(add: $add) {
-      message
-    }
+    addProduct(add: $add) ${res}
   }
 `;
 
 export const UPDATE_PRODUCT = gql`
   mutation UpdateProduct($update: InpProduct) {
-    updateProduct(update: $update) {
-      message
-    }
+    updateProduct(update: $update) ${res}
   }
 `;
 
 export const REMOVE_PRODUCT = gql`
   mutation RemoveProduct($ids: [String]) {
-    removeProduct(ids: $ids) {
-      message
-    }
+    removeProduct(ids: $ids) ${res}
   }
 `;

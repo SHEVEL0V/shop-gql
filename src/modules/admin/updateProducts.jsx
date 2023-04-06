@@ -1,8 +1,8 @@
 /** @format */
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import FormMain from "../../components/admin/formMain";
 import FormAddOpt from "../../components/admin/formAddOpt";
 import UploadImg from "../../components/admin/uploadImg";
@@ -16,6 +16,7 @@ import { useMutation, useQuery } from "@apollo/client";
 import { schemasGql } from "../../gql";
 
 import s from "./style.module.css";
+import { logDOM } from "@testing-library/react";
 
 export default function UpdateProducts({ page }) {
   const [file, setFile] = useState(false);
@@ -23,8 +24,6 @@ export default function UpdateProducts({ page }) {
   const [img, setImg] = useState(picture);
   const { id } = useParams();
   const desc = useSelector((store) => store.options.desc);
-
-  const navigate = useNavigate();
 
   const boolean = page === "Update";
 
@@ -38,8 +37,12 @@ export default function UpdateProducts({ page }) {
   });
 
   const [addProduct, { loading: loadADD }] = useMutation(
-    schemasGql.ADD_PRODUCT
+    schemasGql.ADD_PRODUCT,
+    {
+      refetchQueries: [{ query: schemasGql.GET_PRODUCTS }],
+    }
   );
+
   const [updateProduct, { loading: loadUpdate }] = useMutation(
     schemasGql.UPDATE_PRODUCT
   );

@@ -20,7 +20,7 @@ export default function ListProductsAdmin() {
 
   const { handleCheckBoxArray } = useCheckBox(setOptions);
 
-  const { loading, data } = useQuery(schemasGql.GET_PRODUCTS, {
+  const { loading, data, refetch } = useQuery(schemasGql.GET_PRODUCTS, {
     variables: { query },
   });
 
@@ -31,7 +31,7 @@ export default function ListProductsAdmin() {
   const products = data?.getProducts;
 
   const handleRemoveProducts = () =>
-    removeProduct({ variables: { ids: options } });
+    removeProduct({ variables: { ids: options } }).then(() => refetch());
 
   return (
     <div className={s.containerList}>

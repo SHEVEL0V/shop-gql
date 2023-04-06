@@ -62,14 +62,14 @@ export default function FilterOrder({
         Change status:
       </Typography>
       <div style={{ display: "flex" }}>
+        <Btn disabled={disabled} onClick={() => handleClickButton("PENDING")}>
+          pen
+        </Btn>
         <Btn
           disabled={disabled}
           color="primary"
-          onClick={() => handleClickButton("PENDING")}
+          onClick={() => handleClickButton("RESOLVED")}
         >
-          pen
-        </Btn>
-        <Btn disabled={disabled} onClick={() => handleClickButton("RESOLVED")}>
           res
         </Btn>
         <Btn
