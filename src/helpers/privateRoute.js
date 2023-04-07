@@ -7,7 +7,7 @@ export default function PrivateRoute() {
   const isAuthAdmin = useSelector((s) => s.auth?.user?.role === "admin");
   const navigate = useNavigate();
   useEffect(() => {
-    if (false) {
+    if (isAuthAdmin) {
       navigate("/");
     }
   });
