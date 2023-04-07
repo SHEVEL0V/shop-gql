@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 import FormMain from "../../components/admin/formMain";
 import UploadImg from "../../components/admin/uploadImg";
 

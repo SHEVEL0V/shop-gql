@@ -11,13 +11,11 @@ import Autocomplete from "../../UI/autocomplete";
 import picture from "../../assets/img.png";
 import Text from "../../UI/text";
 import { toast } from "react-toastify";
-
+import { filterRes } from "../../helpers/filterRes";
 import { useMutation, useQuery } from "@apollo/client";
 import { schemasGql } from "../../gql";
 
 import s from "./style.module.css";
-import { logDOM } from "@testing-library/react";
-import { filterRes } from "../../helpers/filterRes";
 
 export default function UpdateProducts({ page }) {
   const [file, setFile] = useState(false);
@@ -28,7 +26,7 @@ export default function UpdateProducts({ page }) {
 
   const boolean = page === "Update";
 
-  const { loading: loadGet } = useQuery(schemasGql.GET_PRODUCTS_BY_ID, {
+  useQuery(schemasGql.GET_PRODUCTS_BY_ID, {
     variables: { id },
     skip: !boolean,
     onCompleted: ({ getProductById }) => {
