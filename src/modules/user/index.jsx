@@ -15,12 +15,13 @@ import { ToastContainer, toast } from "react-toastify";
 import Text from "../../UI/text";
 import "react-toastify/dist/ReactToastify.css";
 import s from "./style.module.css";
+import { filterRes } from "../../helpers/filterRes";
 
 export default function UpdateUser() {
   const [file, setFile] = useState(false);
   const [form, setForm] = useState({});
   const [urlImg, setUrlImg] = useState(picture);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const FORM = ["name", "telephone", "delivery"];
 
@@ -32,11 +33,11 @@ export default function UpdateUser() {
 
   useQuery(schemasGql.GET_USER, {
     onCompleted: ({ getUser }) => {
-      setForm(getUser);
+      setForm(filterRes(getUser));
       setUrlImg(getUser.avatarURL);
     },
   });
-  console.log(urlImg);
+
   const [updateUser] = useMutation(schemasGql.UPDATE_USER);
 
   const handleUpdateUser = () =>

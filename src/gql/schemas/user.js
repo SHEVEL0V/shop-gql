@@ -50,7 +50,7 @@ export const AUTH = gql`
 export const UPDATE_USER = gql`
   mutation UpdateUser($user: InpUserUpdate) {
     updateUser(user: $user) {
-      message
+      name
     }
   }
 `;

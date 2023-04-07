@@ -17,6 +17,7 @@ import { schemasGql } from "../../gql";
 
 import s from "./style.module.css";
 import { logDOM } from "@testing-library/react";
+import { filterRes } from "../../helpers/filterRes";
 
 export default function UpdateProducts({ page }) {
   const [file, setFile] = useState(false);
@@ -31,7 +32,7 @@ export default function UpdateProducts({ page }) {
     variables: { id },
     skip: !boolean,
     onCompleted: ({ getProductById }) => {
-      setForm(getProductById);
+      setForm(filterRes(getProductById));
       setImg(getProductById.img);
     },
   });
