@@ -17,7 +17,7 @@ import s from "./style.module.css";
 export default function Basket() {
   const dispatch = useDispatch();
   const basket = useSelector(({ basket }) => basket.data);
-  const isOpen = useSelector(({ button }) => button.basket);
+  const isOpen = useSelector(({ button }) => button.basket) || false;
 
   const qty = basket.length;
   const isClose = qty === 0;
