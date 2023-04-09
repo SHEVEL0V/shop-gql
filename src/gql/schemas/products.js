@@ -3,6 +3,7 @@ import { gql } from "@apollo/client";
 
 const res = gql`
   {
+    _id
     name
     price
     rating

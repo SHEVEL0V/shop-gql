@@ -49,7 +49,7 @@ export default function Basket() {
       <ModalCustom open={isOpen} onClick={handleClick}>
         <div className={s.container}>
           {basket !== [] &&
-            basket.map((list) => <CardBasket key={list._id} data={list} />)}
+            basket.map((list, ind) => <CardBasket key={ind} data={list} />)}
         </div>
         <div className={s.priceContainer}>
           <b className={s.prise}>{sumPrice}</b>
