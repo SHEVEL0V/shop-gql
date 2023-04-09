@@ -22,7 +22,7 @@ export default function FormAddOpt({ form, setForm, params = {} }) {
   const handleDeleteOptions = (index) =>
     setOptions(options.filter((_, i) => index !== i));
 
-  const autocomplete = Object.keys(params);
+  const autocomplete = params.map(({ name }) => name);
 
   return (
     <div className={s.container}>
