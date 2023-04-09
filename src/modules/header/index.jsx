@@ -29,7 +29,7 @@ export default function Header() {
 
   const visibilityAdmin = path[1] === "admin";
   const visibilityMenu = path[2] === "remove" || path[1] === "";
-  const visibilityBtnBack = path[1] !== "";
+  const visibilityStartPage = path[1] === "";
 
   const handleColorButton = (value) =>
     pathname === value ? "warning" : "info";
@@ -38,12 +38,12 @@ export default function Header() {
     <AppBar position="sticky">
       <Toolbar>
         {visibilityMenu && !matches && <MenuButton />}
-        {visibilityBtnBack && (
+        {!visibilityStartPage && (
           <BtnBack onClick={() => navigate("/")}>home</BtnBack>
         )}
 
         <Title>SHOP</Title>
-        {!visibilityAdmin && <SearchInput />}
+        {visibilityStartPage && <SearchInput />}
         {visibilityAdmin && (
           <div className={s.navContainer}>
             <Button
