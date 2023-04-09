@@ -43,13 +43,16 @@ export default function Basket() {
       })
       .catch((err) => toast.error(err));
 
+  console.log(basket.map((list, ind) => "a"));
+
   return (
     <div>
       <BasketIkon qty={qty} onClick={handleClick} disabled={isClose} />
-      <ModalCustom open={isOpen} onClick={handleClick} visibility={isClose}>
+      <ModalCustom open={isOpen} onClick={handleClick}>
         <div className={s.container}>
-          {basket !== [] &&
-            basket.map((list, ind) => <CardBasket key={ind} data={list} />)}
+          {basket.map((list, ind) => (
+            <CardBasket key={ind} data={list} />
+          ))}
         </div>
         <div className={s.priceContainer}>
           <b className={s.prise}>{sumPrice}</b>

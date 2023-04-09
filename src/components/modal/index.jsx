@@ -4,7 +4,7 @@ import React from "react";
 import { Modal } from "@mui/material";
 import s from "./style.module.css";
 
-export default function ModalCustom({ children, open, onClick, visibility }) {
+export default function ModalCustom({ children, open, onClick }) {
   return (
     <Modal
       open={open}
@@ -12,7 +12,6 @@ export default function ModalCustom({ children, open, onClick, visibility }) {
       sx={{
         paddingTop: 10,
         paddingInline: 2,
-        visibility: !visibility ? "visible" : "hidden",
       }}
       closeAfterTransition={true}
     >
