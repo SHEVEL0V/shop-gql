@@ -53,6 +53,7 @@ export default function Product() {
         </div>
 
         <Button
+          sx={{ marginTop: "auto" }}
           onClick={handleAddProducts}
           color="secondary"
           disabled={isDisable()}
