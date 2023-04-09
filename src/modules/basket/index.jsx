@@ -48,11 +48,9 @@ export default function Basket() {
       <BasketIkon qty={qty} onClick={handleClick} disabled={isClose} />
       <ModalCustom open={isOpen} onClick={handleClick}>
         <div className={s.container}>
-          {basket.length === 0 ? (
-            <div>Not items</div>
-          ) : (
-            basket.map((list, ind) => <CardBasket key={ind} data={list} />)
-          )}
+          {basket.map((list, ind) => (
+            <CardBasket key={ind} data={list} />
+          ))}
         </div>
         <div className={s.priceContainer}>
           <b className={s.prise}>{sumPrice}</b>

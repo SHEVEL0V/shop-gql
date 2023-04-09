@@ -12,6 +12,7 @@ export default function ModalCustom({ children, open, onClick }) {
       sx={{
         paddingTop: 10,
         paddingInline: 2,
+        visibility: open ? "visible" : "hidden",
       }}
       closeAfterTransition={true}
     >
