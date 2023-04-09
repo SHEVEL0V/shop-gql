@@ -46,7 +46,7 @@ export default function Basket() {
   return (
     <div>
       <BasketIkon qty={qty} onClick={handleClick} disabled={isClose} />
-      <ModalCustom open={isOpen} onClick={handleClick}>
+      <ModalCustom open={isOpen} onClick={handleClick} visibility={isClose}>
         <div className={s.container}>
           {basket !== [] &&
             basket.map((list, ind) => <CardBasket key={ind} data={list} />)}
