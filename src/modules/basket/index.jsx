@@ -43,8 +43,6 @@ export default function Basket() {
       })
       .catch((err) => toast.error(err));
 
-  console.log(basket.map((list, ind) => "a"));
-
   return (
     <div>
       <BasketIkon qty={qty} onClick={handleClick} disabled={isClose} />
