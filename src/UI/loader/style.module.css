@@ -1,0 +1,7 @@
+/** @format */
+
+.container {
+  display: block;
+  margin-inline: auto;
+  margin-top: auto;
+}

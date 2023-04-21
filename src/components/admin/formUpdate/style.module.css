@@ -1,0 +1,35 @@
+/** @format */
+
+.container {
+  display: block;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: var(--bg-color-tho);
+}
+.form {
+  display: block;
+}
+.containerList {
+  display: flex;
+  width: 100%;
+  padding-right: 20px;
+}
+
+.buttonContainer {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  width: 100%;
+  padding-inline: 20px;
+  border: 1px solid grey;
+  border-radius: 4px;
+}
+.buttonContainer:hover {
+  border-color: black;
+}
+@media screen and (min-width: 600px) {
+  .form {
+    display: flex;
+  }
+}

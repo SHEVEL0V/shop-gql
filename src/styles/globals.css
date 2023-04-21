@@ -1,0 +1,10 @@
+/** @format */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-color-one: #ecf2f2;
+  --bg-color-tho: #d6dfe2;
+}
