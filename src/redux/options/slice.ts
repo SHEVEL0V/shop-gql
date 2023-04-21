@@ -10,7 +10,7 @@ const initialState: Params = {
     types: [],
     brands: [],
     params: [],
-    prise: [],
+    price: [],
   },
 };
 
