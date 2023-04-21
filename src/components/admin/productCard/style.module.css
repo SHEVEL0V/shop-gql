@@ -17,13 +17,16 @@
 .containerImg {
   box-sizing: border-box;
   margin-inline: auto;
-  width: 100px;
+  width: 60px;
+  height: 60px;
+
+  padding: 3px;
+  margin-right: 10px;
   display: flex;
   justify-content: center;
 }
 .img {
   margin-inline: auto;
-  height: 50px;
 }
 .containerName {
   margin-inline: 3px;

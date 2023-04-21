@@ -24,15 +24,8 @@ export default function ProductsUpdateForm({
   title = "",
   mutation,
 }: Props) {
-  const startForm: any = {
-    price: null,
-    name: null,
-    brand: null,
-    type: null,
-  };
-
   const [file, setFile] = useState(false);
-  const [form, setForm] = useState(startForm);
+  const [form, setForm] = useState(data || {});
   const [img, setImg] = useState(data?.img || picture);
   const [loading, setLoading] = useState(false);
 
@@ -50,7 +43,7 @@ export default function ProductsUpdateForm({
 
   const disabled = () => {
     const arr = Object.values(form);
-    return arr.length >= 4 && file && !arr.includes("") && !arr.includes(0);
+    return arr.length >= 4 && !arr.includes("") && !arr.includes(0);
   };
 
   return (
