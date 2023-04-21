@@ -11,16 +11,16 @@ export default async function UploadImg(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  await NextCors(req, res, {
+    // Options
+    methods: ["POST"],
+    origin: "*",
+    optionsSuccessStatus: 200,
+  });
+
   const form = formidable();
   const jwt = await authModelCloud();
   const storage = new Storage({ authClient: jwt });
-
-  await NextCors(req, res, {
-    // Options
-    methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
-    origin: "*",
-    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-  });
 
   form.parse(req, async (err, fields, files: any) => {
     try {

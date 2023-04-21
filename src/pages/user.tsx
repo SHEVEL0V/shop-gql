@@ -7,7 +7,7 @@ import { filterRes } from "@/helpers/filterRes";
 import { toast } from "react-toastify";
 import UpdateUser from "@/modules/user";
 import Loader from "@/UI/loader";
-import { uploadImgToStorage } from "@/services/upload";
+import { uploadImgToStorage } from "@/services/fetch";
 
 import type { User } from "@/types";
 

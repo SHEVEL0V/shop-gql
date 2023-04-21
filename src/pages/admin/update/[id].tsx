@@ -7,7 +7,7 @@ import ProductsUpdateForm from "@/components/admin/formUpdate";
 import Loader from "@/UI/loader";
 import { toast } from "react-toastify";
 import { PrivateRoute } from "@/modules/router";
-import { uploadImgToStorage } from "@/services/upload";
+import { uploadImgToStorage } from "@/services/fetch";
 
 import type { Product } from "@/types";
 
