@@ -1,6 +1,6 @@
 /** @format */
 import type { NextApiRequest, NextApiResponse } from "next";
-
+import NextCors from "nextjs-cors";
 import formidable from "formidable";
 import { authModelCloud } from "@/services/authGoogle";
 import { Storage } from "@google-cloud/storage";
@@ -14,6 +14,13 @@ export default async function UploadImg(
   const form = formidable();
   const jwt = await authModelCloud();
   const storage = new Storage({ authClient: jwt });
+
+  await NextCors(req, res, {
+    // Options
+    methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
+    origin: "*",
+    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+  });
 
   form.parse(req, async (err, fields, files: any) => {
     try {
