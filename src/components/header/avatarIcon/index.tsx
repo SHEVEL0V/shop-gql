@@ -25,7 +25,7 @@ export default function AvatarIcon() {
 
   const handleCloseUserMenu = () => setAnchorElUser(null);
   const handleLogout = () => {
-    dispatch(setUser({ token: "", user: null }));
+    dispatch(setUser({ token: "", user: {} }));
     router.push("/");
   };
   return (
