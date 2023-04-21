@@ -45,5 +45,8 @@
     "tailwindcss": "3.3.1",
     "typescript": "5.0.4",
     "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@netlify/plugin-nextjs": "^4.35.0"
   }
 }
