@@ -12,6 +12,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 
 import s from "./style.module.css";
 import type { ItemBasket } from "@/types";
+import Image from "next/image";
 
 type Props = {
   data: ItemBasket;
@@ -31,7 +32,13 @@ export default function CardBasket({ data }: Props) {
   return (
     <div className={s.container}>
       <div className={s.flex}>
-        <img className={s.img} src={img} alt={name} />
+        <Image
+          className={s.img}
+          src={img}
+          alt={name}
+          width={500}
+          height={500}
+        />
         <div className={s.titleContainer}>
           <h2 className={s.title}>{name}</h2>
           <div className={s.countContainer}>
