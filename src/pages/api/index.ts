@@ -11,6 +11,7 @@ export default async function UploadImg(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  //----cors--------------------------------
   await NextCors(req, res, {
     // Options
     methods: ["POST"],
@@ -18,10 +19,12 @@ export default async function UploadImg(
     optionsSuccessStatus: 200,
   });
 
+  //----variables--------------------------------
   const form = formidable();
   const jwt = await authModelCloud();
   const storage = new Storage({ authClient: jwt });
 
+  //-----upload file--------------------------------
   form.parse(req, async (err, fields, files: any) => {
     try {
       if (!files) throw new Error("Not file image");

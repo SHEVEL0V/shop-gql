@@ -8,14 +8,19 @@ import Apollo from "@/gql/settings";
 
 import { Layout } from "@/modules/layout";
 import "@/styles/globals.css";
+import Head from "next/head";
 
 export default function App({ Component, pageProps }: AppProps) {
+  const id = process.env.NEXT_PUBLIC_GOOGLE_ID || "";
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <GoogleOAuthProvider clientId={"process.env.NEXT_PUBLIC_GOOGLE_ID"}>
+        <GoogleOAuthProvider clientId={id}>
           <Apollo>
             <Layout>
+              <Head>
+                <title>Shop</title>
+              </Head>
               <Component {...pageProps} />
             </Layout>
           </Apollo>
