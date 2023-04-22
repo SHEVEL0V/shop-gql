@@ -10,7 +10,6 @@
 
 .itemContainer {
   box-sizing: border-box;
-  max-width: 600px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -24,7 +23,7 @@
 
 .img {
   display: block;
-  width: 100%;
+  width: 500px;
 }
 .prise {
   font-size: 16px;

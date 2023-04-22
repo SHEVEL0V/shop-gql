@@ -24,19 +24,21 @@ export default async function UploadImg(
   const jwt = await authModelCloud();
   const storage = new Storage({ authClient: jwt });
 
-  //-----upload file--------------------------------
+  //-----read file--------------------------------
   form.parse(req, async (err, fields, files: any) => {
     try {
       if (!files) throw new Error("Not file image");
 
       const { filepath, newFilename, originalFilename } = files.image;
 
+      //--------upload file to google storage--------------------------------
       const [File]: any = await storage.bucket("buket-image").upload(filepath, {
         destination: newFilename + "-" + originalFilename,
       });
-
+      //--------response success--------------------------------
       return res.status(200).json({ url: File.metadata.mediaLink });
     } catch {
+      //--------response failed--------------------------------
       return res.status(400).json({ message: "Error upload image" });
     }
   });

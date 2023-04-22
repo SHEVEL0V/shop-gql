@@ -9,12 +9,13 @@ import s from "./style.module.css";
 import Text from "@/UI/text";
 import Image from "next/image";
 
+import type { Product } from "@/types";
 type Props = {
-  data: any;
+  data: Product;
   handleCheckBox: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export default function ProductCardAdmin({ data = [], handleCheckBox }: Props) {
+export default function ProductCardAdmin({ data, handleCheckBox }: Props) {
   const router = useRouter();
 
   const handleNavigate = () =>

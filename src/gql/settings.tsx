@@ -7,7 +7,7 @@ import {
   createHttpLink,
   ApolloProvider,
 } from "@apollo/client";
-// import { createUploadLink } from "apollo-upload-client";
+
 import { setContext } from "@apollo/client/link/context";
 
 type Props = {

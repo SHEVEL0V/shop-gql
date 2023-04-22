@@ -1,8 +1,7 @@
 /** @format */
 
-import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
-import Autocomplete from "../../../UI/autocomplete";
+import Autocomplete from "@/UI/autocomplete";
 import Button from "@mui/material/Button";
 import s from "./style.module.css";
 

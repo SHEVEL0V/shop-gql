@@ -1,6 +1,5 @@
 /** @format */
 
-import React from "react";
 import TextField from "@mui/material/TextField";
 
 import s from "./style.module.css";

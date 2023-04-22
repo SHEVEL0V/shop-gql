@@ -1,5 +1,5 @@
 /** @format */
-import type { Product } from "@/types";
+
 type Obg = {
   [key: string]: string;
 };

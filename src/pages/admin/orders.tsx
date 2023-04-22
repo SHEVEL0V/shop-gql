@@ -29,6 +29,7 @@ export default function Orders() {
       .catch(() => toast.error("error update order"));
 
   const boolean = ids.length === 0;
+
   const { result, count } = data?.getOrders || { result: [], count: 1 };
 
   return (

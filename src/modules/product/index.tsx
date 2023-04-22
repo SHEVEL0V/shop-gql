@@ -1,12 +1,12 @@
 /** @format */
-
+import Image from "next/image";
 import { useDispatch } from "react-redux";
-import { setBasket } from "../../redux/basket/slice";
-import useItemByBasket from "../../hooks/useItemByBasket";
+import { setBasket } from "@/redux/basket/slice";
+import useItemByBasket from "@/hooks/useItemByBasket";
 import Button from "@mui/material/Button";
+
 import type { Product } from "@/types";
 import s from "./style.module.css";
-import Image from "next/image";
 
 type Props = { data: Product; id: string };
 
@@ -22,8 +22,8 @@ export default function Product({ data, id }: Props) {
     <div className={s.container}>
       <div className={s.itemContainer}>
         <Image
-          width={500}
-          height={500}
+          width={1200}
+          height={1200}
           src={img}
           alt="product image"
           className={s.img}
@@ -38,6 +38,7 @@ export default function Product({ data, id }: Props) {
         <h5>Descriptions:</h5>
         <p>{desc}</p>
         <div>
+          <b>parameters:</b>
           {params?.map((e, i) => (
             <div key={i}>
               <div style={{ display: "flex" }}>

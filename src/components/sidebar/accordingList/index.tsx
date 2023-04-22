@@ -14,7 +14,7 @@ type Props = { data: string[]; title: string };
 export default function AccordingList({ data = [], title }: Props) {
   const { setParams, getParamByKey } = useSearchParamsCustom();
 
-  const [options, setOptions] = useState(getParamByKey(title));
+  const [options, setOptions] = useState<string[]>(getParamByKey(title));
 
   const { handleCheckBox } = useCheckBox(setOptions);
 

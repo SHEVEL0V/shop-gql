@@ -10,6 +10,7 @@ import Image from "next/image";
 import { useMutation } from "@apollo/client";
 import { schemasGql } from "@/gql";
 import placeholder from "@/assets/img.png";
+import { toast } from "react-toastify";
 
 import s from "./style.module.css";
 
@@ -36,8 +37,8 @@ export default function CardProduct({ data }: Props) {
   const handleUpdateRating = (value: number | null) =>
     value &&
     addRating({ variables: { itemId: _id, rate: value } })
-      .then(() => console.log("Rating updated"))
-      .catch(() => console.log("Error updating rating"));
+      .then(() => toast.success("Rating updated"))
+      .catch(() => toast.error("Error updating rating , please authenticate"));
 
   return (
     <Card

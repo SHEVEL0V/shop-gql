@@ -7,7 +7,7 @@ import Image from "next/image";
 
 type Props = {
   setFile: React.Dispatch<React.SetStateAction<any>>;
-  urlImg: any;
+  urlImg: string;
   setUrlImg: React.Dispatch<React.SetStateAction<any>>;
 };
 

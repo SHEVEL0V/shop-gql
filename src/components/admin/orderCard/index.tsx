@@ -2,19 +2,26 @@
 
 import React from "react";
 import Card from "@mui/material/Card";
-import Text from "../../../UI/text";
+import Text from "@/UI/text";
 import Checkbox from "@mui/material/Checkbox";
-import getTime from "../../../helpers/getTime";
+import getTime from "@/helpers/getTime";
 
 import s from "./style.module.css";
+import type { User } from "@/types";
 
 type Props = {
-  data: any;
+  data: {
+    user: User;
+    status: string;
+    orders: [];
+    createdAt: string;
+    _id: string;
+  };
   handleCheckBox: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export default function OrderCard({ data, handleCheckBox }: Props) {
-  const { user, status, orders, createdAt } = data;
+  const { user, status, orders, createdAt, _id } = data;
   const { email, telephone } = user;
 
   const totalPrice = orders.reduce((acc: number, e: any) => acc + e.price, 0);
@@ -61,7 +68,7 @@ export default function OrderCard({ data, handleCheckBox }: Props) {
         </div>
       </div>
       <Checkbox
-        value={data._id}
+        value={_id}
         onChange={handleCheckBox}
         sx={{ height: "50px", marginTop: "auto", marginBottom: "auto" }}
       />

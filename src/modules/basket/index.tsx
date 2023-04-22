@@ -50,6 +50,7 @@ export default function Basket() {
         <div className={s.priceContainer}>
           <b className={s.prise}>{sumPrice}</b>
           <Button
+            disabled={qty === 0}
             sx={{ width: 200 }}
             color="success"
             variant="contained"
