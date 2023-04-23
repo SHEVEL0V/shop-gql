@@ -6,43 +6,33 @@ import Checkbox from "@mui/material/Checkbox";
 import According from "@/UI/according";
 import useSearchParamsCustom from "@/hooks/useSearchParams";
 import s from "./style.module.css";
+import { useSetFormOptions } from "@/hooks/useSetFormOptions";
 
 type Props = {
   options: { name: string; value: string[] }[];
 };
 
-type Obj = { [field: string]: string[] };
-
 export default function Options({ options = [] }: Props) {
-  const [form, setForm] = useState({});
+  const [form, setForm] = useState<any>({});
 
   const { setParams } = useSearchParamsCustom();
 
   const handelSearch = () => setParams({ ...form, page: 1 });
 
-  const handleSetForm = ({
-    target: { value, checked, name },
-  }: React.ChangeEvent<HTMLInputElement>) => {
-    checked
-      ? setForm((state: Obj) =>
-          state[name]
-            ? { ...state, [name]: [...state[name], value] }
-            : { ...state, [name]: [value] }
-        )
-      : setForm((state: Obj) => ({
-          ...state,
-          [name]: state[name].filter((item) => item !== value),
-        }));
-  };
+  const { handelChange } = useSetFormOptions(setForm);
 
   return (
     <According title="options">
-      {options?.map((item, ind) => (
-        <According key={ind} title={item?.name}>
-          {item?.value.map((el) => (
+      {options?.map(({ name, value }, ind) => (
+        <According
+          key={ind}
+          title={name}
+          border={form[name] ? form[name].length > 0 : false}
+        >
+          {value.map((el) => (
             <div key={el} className={s.container}>
               <span className={s.name}>{el}</span>
-              <Checkbox name={item?.name} value={el} onChange={handleSetForm} />
+              <Checkbox name={name} value={el} onChange={handelChange} />
             </div>
           ))}
         </According>

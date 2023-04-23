@@ -15,9 +15,6 @@ export default function useSearchParamsCustom() {
 
   //  ----filter search params--------------------
   const filterParams = (params: ObjType) => {
-    const query: Query = {};
-    const array: ItemParams[] = [];
-
     const FIELD = [
       "limit",
       "sort",
@@ -29,15 +26,21 @@ export default function useSearchParamsCustom() {
       "date",
     ];
 
-    Object.keys(params).map((key) =>
-      FIELD.includes(key)
-        ? (query[key] = params[key])
-        : array.push({ name: key, value: params[key] })
+    const initialValues: { params?: ItemParams[] } = {};
+
+    return Object.entries(params).reduce(
+      (acc, [name, value]) =>
+        FIELD.includes(name)
+          ? { ...acc, [name]: value }
+          : {
+              ...acc,
+              params: acc.params
+                ? [...acc.params, { name, value }]
+                : [{ name, value }],
+            },
+
+      initialValues
     );
-
-    const options = array.length > 0 ? { options: array } : undefined;
-
-    return { ...query, ...options };
   };
 
   // -----handel value--------------------
