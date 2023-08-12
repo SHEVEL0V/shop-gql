@@ -30,15 +30,17 @@ export default function ProductCardAdmin({ data, handleCheckBox }: Props) {
             alt={data.name}
             className={s.img}
             width={500}
-            height={500}
+            height={400}
           />
         </div>
         <Text>brand: {data?.brand}</Text>
-        <Text>
-          name: <b>{data.name}</b>
-        </Text>
+        <div className=" ml-4">
+          <Text>
+            name: <b>{data.name}</b>
+          </Text>
+        </div>
       </div>
-      <div style={{ marginLeft: "auto" }}>
+      <div className="ml-auto">
         <Text>
           price:<b>{data.price}</b>
         </Text>

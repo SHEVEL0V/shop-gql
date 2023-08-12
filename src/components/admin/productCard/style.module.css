@@ -26,7 +26,7 @@
   justify-content: center;
 }
 .img {
-  margin-inline: auto;
+  object-fit: contain;
 }
 .containerName {
   margin-inline: 3px;
