@@ -21,17 +21,21 @@
   margin-bottom: auto;
   object-fit: contain;
 }
-.prise {
-  font-size: 16px;
+.price {
+  font-size: 18px;
   font-weight: 700;
-  color: #e31837;
+  color: var(--secondary-color);
 }
-.flex {
+.rating {
   display: flex;
+  margin-top: 10px;
+  font-size: 14px;
 }
 
 .title {
   margin-top: auto;
+  font-size: 16px;
+  font-weight: 700;
 }
 
 @media screen and (max-width: 480px) {

@@ -36,12 +36,13 @@ export const basketSlice = createSlice({
       state.data[index].qty += 1;
     },
 
-    decrementsQty: ({ data }, action: PayloadAction<{ id: string }>) => {
+    decrementsQty: (state, action: PayloadAction<{ id: string }>) => {
+      const { data } = state;
       const index = data.map((el) => el._id).indexOf(action.payload.id);
 
-      if (data[index].qty !== 1) {
-        data[index].qty -= 1;
-      }
+      data[index].qty > 1
+        ? (data[index].qty -= 1)
+        : (state.data = data.filter((el) => el._id !== action.payload.id));
     },
   },
 });

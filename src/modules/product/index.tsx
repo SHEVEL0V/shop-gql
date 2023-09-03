@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { setBasket } from "@/redux/basket/slice";
 import useItemByBasket from "@/hooks/useItemByBasket";
 import Button from "@mui/material/Button";
+import ButtonCount from "@/components/buttonCount";
 
 import type { Product } from "@/types";
 import s from "./style.module.css";
@@ -48,16 +49,19 @@ export default function Product({ data, id }: Props) {
             </div>
           ))}
         </div>
-
-        <Button
-          sx={{ marginTop: "auto" }}
-          onClick={handleAddProducts}
-          color="secondary"
-          disabled={isDisable()}
-          variant="contained"
-        >
-          <span>{!isDisable() ? "Add to basket" : "item in the basket"}</span>
-        </Button>
+        {isDisable() ? (
+          <ButtonCount id={id} />
+        ) : (
+          <Button
+            sx={{ marginTop: "auto" }}
+            onClick={handleAddProducts}
+            color="secondary"
+            disabled={isDisable()}
+            variant="contained"
+          >
+            <span> Add to basket </span>
+          </Button>
+        )}
       </div>
     </div>
   );

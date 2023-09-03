@@ -5,6 +5,7 @@ import { setButtonBasket } from "@/redux/button/slice";
 import ModalCustom from "@/components/modal";
 import CardBasket from "@/components/cardBasket";
 import BasketIkon from "@/components/basketIcon";
+
 import { toast } from "react-toastify";
 import Button from "@mui/material/Button";
 
@@ -12,6 +13,7 @@ import { useMutation } from "@apollo/client";
 import { schemasGql } from "../../gql";
 
 import s from "./style.module.css";
+import Text from "@/UI/text";
 
 export default function Basket() {
   const dispatch = useAppDispatch();
@@ -42,21 +44,23 @@ export default function Basket() {
       <ModalCustom open={isOpen} onClick={handleClick}>
         <div className={s.container}>
           {isClose ? (
-            <h3>Add product to cart</h3>
+            <Text>No products found.</Text>
           ) : (
             basket.map((list) => <CardBasket key={list._id} data={list} />)
           )}
         </div>
         <div className={s.priceContainer}>
-          <b className={s.prise}>{sumPrice}</b>
           <Button
             disabled={qty === 0}
-            sx={{ width: 200 }}
+            sx={{ width: "100%", height: "60px", borderRadius: "50px" }}
             color="success"
             variant="contained"
             onClick={handleOrder}
           >
-            To order
+            Checkout
+            <div className=" p-2 bg-slate-50 ml-auto rounded-3xl">
+              <Text> &#8372; {sumPrice}</Text>
+            </div>
           </Button>
         </div>
       </ModalCustom>

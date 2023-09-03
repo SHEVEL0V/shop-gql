@@ -19,7 +19,13 @@ export default function App({ Component, pageProps }: AppProps) {
           <Apollo>
             <Layout>
               <Head>
-                <title>Shop</title>
+                <title>A-Store</title>
+                <link
+                  rel="icon"
+                  href="logo.svg"
+                  type="image/svg"
+                  sizes="32x32"
+                />
               </Head>
               <Component {...pageProps} />
             </Layout>

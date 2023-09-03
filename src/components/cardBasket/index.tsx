@@ -10,9 +10,11 @@ import {
 import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-import s from "./style.module.css";
 import type { ItemBasket } from "@/types";
 import Image from "next/image";
+
+import s from "./style.module.css";
+import Text from "@/UI/text";
 
 type Props = {
   data: ItemBasket;
@@ -31,7 +33,16 @@ export default function CardBasket({ data }: Props) {
 
   return (
     <div className={s.container}>
-      <div className={s.flex}>
+      <div className={"flex"}>
+        <div className={s.countContainer}>
+          <button className={s.button} onClick={handleCountIncrement}>
+            <Text>+</Text>
+          </button>
+          <Text>{qty}</Text>
+          <button className={s.button} onClick={handleCountDecrement}>
+            <Text>-</Text>
+          </button>
+        </div>
         <Image
           className={s.img}
           src={img}
@@ -39,26 +50,25 @@ export default function CardBasket({ data }: Props) {
           width={500}
           height={500}
         />
-        <div className={s.titleContainer}>
-          <h2 className={s.title}>{name}</h2>
-          <div className={s.countContainer}>
-            <button className={s.button} onClick={handleCountDecrement}>
-              -
-            </button>
-            <b className={s.count}>{qty}</b>
-            <button className={s.button} onClick={handleCountIncrement}>
-              +
-            </button>
-            <b className={s.price}>{finalPrice} grn</b>
+        <div className={"flex-row pl-2 "}>
+          <h2 className={"text-xl "}>{name}</h2>
+          <b className={s.price}>&#8372;{price}</b>
+          <div className="mt-4">
+            <Text>1 * {qty} pc(s)</Text>
           </div>
         </div>
-        <Button
-          sx={{ minWidth: "100px" }}
-          variant="contained"
-          onClick={handleDeleteProduct}
-        >
-          <DeleteIcon /> Delete
-        </Button>
+        <div className="flex items-center ml-auto">
+          <Text> &#8372;{finalPrice}</Text>
+          <Button
+            sx={{
+              height: "60px",
+              borderRadius: "100%",
+            }}
+            onClick={handleDeleteProduct}
+          >
+            <DeleteIcon />
+          </Button>
+        </div>
       </div>
     </div>
   );

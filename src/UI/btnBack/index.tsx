@@ -11,10 +11,10 @@ type Props = {
 export default function BtnBack({ children, onClick }: Props) {
   return (
     <Button
-      color="inherit"
+      sx={{ position: "absolute", bottom: "-60px" }}
+      color="info"
       variant="text"
       startIcon={<ArrowBackIcon />}
-      sx={{ marginInline: "5px" }}
       onClick={onClick}
     >
       {children}

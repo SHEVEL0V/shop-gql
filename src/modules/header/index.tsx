@@ -13,6 +13,7 @@ import AvatarIcon from "@/components/header/avatarIcon";
 import Title from "@/UI/title";
 import BtnBack from "@/UI/btnBack";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import Logo from "@/UI/logo";
 import s from "./style.module.css";
 
 export default function Header() {
@@ -39,7 +40,10 @@ export default function Header() {
         {!visibilityStartPage && (
           <BtnBack onClick={() => navigate("/")}>home</BtnBack>
         )}
-        <Title>SHOP</Title>
+        <Title>
+          <Logo />
+          A-Store
+        </Title>
         {visibilityStartPage && <SearchInput />}
         {visibilityAdmin && (
           <div className={s.navContainer}>

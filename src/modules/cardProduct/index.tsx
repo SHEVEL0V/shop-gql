@@ -6,6 +6,8 @@ import useItemByBasket from "@/hooks/useItemByBasket";
 import Rating from "@mui/material/Rating";
 import Button from "@mui/material/Button";
 import { Card } from "@mui/material";
+import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
+import ButtonCount from "@/components/buttonCount";
 import Image from "next/image";
 import { useMutation } from "@apollo/client";
 import { schemasGql } from "@/gql";
@@ -60,25 +62,37 @@ export default function CardProduct({ data }: Props) {
         placeholder="blur"
       />
       <h2 className={s.title}>{name}</h2>
-      <b className={s.flex}>
-        Rating
+      <div className={s.rating}>
+        rating
         <Rating
           sx={{ marginBottom: 1, marginLeft: 1 }}
           value={rating}
           onChange={(_, v) => handleUpdateRating(v)}
         />
-      </b>
-      <h3 className={s.prise}>
-        price: <span>{price}</span> UAH
-      </h3>
-      <Button
-        onClick={handleAddProducts}
-        color="secondary"
-        disabled={isDisable()}
-        variant="contained"
-      >
-        <span>{!isDisable() ? "Add to basket" : "item in the basket"}</span>
-      </Button>
+      </div>
+      <div className="flex items-center">
+        <h3 className={s.price}>
+          &#8372; <span>{price}</span>
+        </h3>
+        {!isDisable() ? (
+          <Button
+            sx={{
+              marginLeft: "auto",
+              borderRadius: "32px",
+            }}
+            onClick={handleAddProducts}
+            color="secondary"
+            variant="contained"
+          >
+            <ShoppingBasketIcon sx={{ height: "20px", marginRight: "3px" }} />
+            Cart
+          </Button>
+        ) : (
+          <div className="w-24 ml-auto">
+            <ButtonCount id={_id} />
+          </div>
+        )}
+      </div>
     </Card>
   );
 }

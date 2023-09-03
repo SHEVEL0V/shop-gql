@@ -2,6 +2,7 @@
 
 import React from "react";
 import IconButton from "@mui/material/IconButton";
+import Image from "next/image";
 //-icons
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
@@ -12,9 +13,11 @@ import TelegramIcon from "@mui/icons-material/Telegram";
 
 export default function Footer() {
   return (
-    <footer className={"flex p-4 text-base text-gray-500 bg-slate-50"}>
+    <footer
+      className={"flex p-4 text-base text-gray-500 bg-gray-600 text-slate-50"}
+    >
       <div className="my-auto">
-        <p>© 2023 Shop Company. All rights reserved.</p>
+        <p>© 2023 A-Store Company. All rights reserved.</p>
       </div>
       <div className="ml-auto">
         <div className="flex-col p-1">
@@ -22,16 +25,16 @@ export default function Footer() {
           <div className="h-0.5 bg-gray-400"></div>
         </div>
         <IconButton>
-          <FacebookIcon />
+          <FacebookIcon sx={{ fill: "white" }} />
         </IconButton>
         <IconButton>
-          <TwitterIcon />
+          <TwitterIcon sx={{ fill: "white" }} />
         </IconButton>
         <IconButton>
-          <InstagramIcon />
+          <InstagramIcon sx={{ fill: "white" }} />
         </IconButton>
         <IconButton>
-          <TelegramIcon />
+          <TelegramIcon sx={{ fill: "white" }} />
         </IconButton>
       </div>
     </footer>
