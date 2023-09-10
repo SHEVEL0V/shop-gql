@@ -3,16 +3,13 @@ import { useAppDispatch } from "@/redux/hooks";
 import { useRouter } from "next/router";
 import { setBasket } from "@/redux/basket/slice";
 import useItemByBasket from "@/hooks/useItemByBasket";
-import Rating from "@mui/material/Rating";
+import RatingItem from "@/components/rating";
 import Button from "@mui/material/Button";
 import { Card } from "@mui/material";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import ButtonCount from "@/components/buttonCount";
 import Image from "next/image";
-import { useMutation } from "@apollo/client";
-import { schemasGql } from "@/gql";
 import placeholder from "@/assets/img.png";
-import { toast } from "react-toastify";
 
 import s from "./style.module.css";
 
@@ -31,16 +28,6 @@ export default function CardProduct({ data }: Props) {
 
   const handleClickCard = () => router.push({ pathname: `/${brand}-${_id}` });
   const handleAddProducts = () => dispatch(setBasket(data));
-
-  const [addRating] = useMutation(schemasGql.GET_RATE, {
-    refetchQueries: [{ query: schemasGql.GET_PRODUCTS }],
-  });
-
-  const handleUpdateRating = (value: number | null) =>
-    value &&
-    addRating({ variables: { itemId: _id, rate: value } })
-      .then(() => toast.success("Rating updated"))
-      .catch(() => toast.error("Error updating rating , please authenticate"));
 
   return (
     <Card
@@ -62,14 +49,7 @@ export default function CardProduct({ data }: Props) {
         placeholder="blur"
       />
       <h2 className={s.title}>{name}</h2>
-      <div className={s.rating}>
-        rating
-        <Rating
-          sx={{ marginBottom: 1, marginLeft: 1 }}
-          value={rating}
-          onChange={(_, v) => handleUpdateRating(v)}
-        />
-      </div>
+      <RatingItem id={_id} rating={rating} />
       <div className="flex items-center">
         <h3 className={s.price}>
           &#8372; <span>{price}</span>

@@ -37,9 +37,7 @@ export default function Header() {
     <AppBar position="sticky">
       <Toolbar sx={{ padding: "5px" }}>
         {visibilityMenu && !matches && <MenuButton />}
-        {!visibilityStartPage && (
-          <BtnBack onClick={() => navigate("/")}>home</BtnBack>
-        )}
+        {!visibilityStartPage && <BtnBack onClick={() => navigate("/")} />}
         <Title>
           <Logo />
           A-Store

@@ -32,7 +32,7 @@ export default function FilterOrder({ updateOrder, disabled = false }: Props) {
 
   return (
     <div className={s.container}>
-      <div style={{ display: "flex", marginBottom: "15px" }}>
+      <div className="flex mt-8 mb-4">
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DatePicker
             value={date}

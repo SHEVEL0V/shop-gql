@@ -1,23 +1,20 @@
 /** @format */
 import React from "react";
 import Button from "@mui/material/Button";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
 type Props = {
   children: React.ReactNode;
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
-export default function BtnBack({ children, onClick }: Props) {
+export default function BtnBack({ onClick }: Props) {
   return (
     <Button
-      sx={{ position: "absolute", bottom: "-60px" }}
-      color="info"
+      color="inherit"
       variant="text"
-      startIcon={<ArrowBackIcon />}
+      startIcon={<ArrowBackIosIcon />}
       onClick={onClick}
-    >
-      {children}
-    </Button>
+    ></Button>
   );
 }

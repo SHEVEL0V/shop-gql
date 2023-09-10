@@ -1,43 +1,39 @@
 /** @format */
-.container {
+/* .container {
   box-sizing: border-box;
   display: flex;
   width: 100%;
   padding: 20px;
   transition: all 350ms ease-out;
   background-color: var(--bg-color-tho);
-}
+} */
 
-.itemContainer {
-  box-sizing: border-box;
+/* .itemContainer {
+  width: 800px;
+  margin-right: 10px;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  margin: 5px;
-  border-radius: 5px;
   background-color: white;
   border-radius: 10px;
-  border-bottom: 2px solid #e5e5e5;
-}
+} */
 
-.img {
+/* .img {
   display: block;
   width: 500px;
-}
+} */
 .prise {
-  font-size: 16px;
+  margin-top: 100px;
+  font-size: 28px;
   font-weight: 700;
-  color: #e31837;
+  color: var(--secondary-color);
 }
 
-.paramContainer {
+/* .paramContainer {
   min-width: 100px;
   padding: 2px;
   margin: 5px;
   border-radius: 2px;
   border: 1px solid #e5e5e5;
-}
+} */
 
 @media screen and (max-width: 768px) {
   .container {

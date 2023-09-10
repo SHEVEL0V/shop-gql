@@ -26,11 +26,6 @@
   font-weight: 700;
   color: var(--secondary-color);
 }
-.rating {
-  display: flex;
-  margin-top: 10px;
-  font-size: 14px;
-}
 
 .title {
   margin-top: auto;

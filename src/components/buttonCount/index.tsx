@@ -24,7 +24,7 @@ export default function ButtonCount({ id }: Props) {
     value ? dispatch(decrementsQty({ id })) : dispatch(removeBasketEl({ id }));
 
   return (
-    <div className="flex w-full mt-auto  p-1 rounded-3xl items-center bg-green-700 ">
+    <div className="flex w-full  p-1 rounded-3xl items-center bg-green-700 ">
       <Button
         sx={{
           marginRight: "auto",
