@@ -12,8 +12,6 @@
   grid-template-columns: repeat(1, 1fr);
   grid-column-gap: 15px;
   grid-row-gap: 15px;
-
-  background-color: var(--bg-color-tho);
 }
 @media screen and (min-width: 480px) {
   .containerProducts {

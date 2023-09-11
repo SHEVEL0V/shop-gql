@@ -22,6 +22,9 @@ export default function Slider({ children }: Props) {
   const nextHandler = () =>
     children.length - 1 > activeId && setActiveId(activeId + 1);
 
+  const isActive = (value: number) =>
+    activeId === value ? "border-green-400" : "border";
+
   return (
     <div className="max-w-[500px]">
       <div className="relative  px-12 ">
@@ -71,8 +74,7 @@ export default function Slider({ children }: Props) {
           <div
             key={i}
             onClick={() => setActiveId(i)}
-            className={`
-            border-green-${i === activeId ? 400 : 100}
+            className={`${isActive(i)}
             w-16 m-2 overflow-hidden border-2  shadow-md rounded 
             hover:opacity-80 cursor-pointer`}
           >

@@ -12,13 +12,11 @@ type Props = {
   children: ReactNode;
 };
 
-import s from "./style.module.css";
-
 export function Layout({ children }: Props) {
   return (
     <>
       <Header />
-      <div className={s.container}>{children}</div>
+      <div className="flex min-h-screen bg-slate-100">{children}</div>
       <Footer />
       <Basket />
       <Auth />
