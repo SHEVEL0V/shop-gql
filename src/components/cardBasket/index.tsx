@@ -23,7 +23,7 @@ type Props = {
 export default function CardBasket({ data }: Props) {
   const dispatch = useAppDispatch();
 
-  const { _id: id, name, price, img, qty } = data;
+  const { _id: id, name, price, images, qty } = data;
 
   const finalPrice = qty * price;
 
@@ -45,7 +45,7 @@ export default function CardBasket({ data }: Props) {
         </div>
         <Image
           className={s.img}
-          src={img}
+          src={images[0]}
           alt={name}
           width={500}
           height={500}
