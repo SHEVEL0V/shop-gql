@@ -3,11 +3,12 @@ import axios from "axios";
 
 type Res = string | Error;
 
-export const uploadImgToStorage = async (file: any): Promise<Res> => {
+export const uploadImgToStorage = async (files: any): Promise<Res> => {
   const formData = new FormData();
-  formData.append("image", file);
+
+  files.map((file: any, i: number) => formData.append(`image${i + 1}`, file));
 
   return await axios
     .post("http://localhost:3000/api", formData)
-    .then(({ data }) => data.url);
+    .then(({ data }) => data.images);
 };

@@ -20,7 +20,7 @@ type Props = {
 };
 
 export default function CardProduct({ data }: Props) {
-  const { _id, name, price, rating, img, brand } = data;
+  const { _id, name, price, rating, images, brand } = data;
 
   const dispatch = useAppDispatch();
   const router = useRouter();
@@ -42,7 +42,7 @@ export default function CardProduct({ data }: Props) {
         onClick={handleClickCard}
         width={500}
         height={500}
-        src={img}
+        src={images[0]}
         alt={name}
         className={s.img}
         blurDataURL={placeholder.src}

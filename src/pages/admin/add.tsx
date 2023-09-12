@@ -13,15 +13,17 @@ export default function AddProduct() {
     refetchQueries: [{ query: schemasGql.GET_PRODUCTS }],
   });
 
-  const handleAddProducts = async (value: Product, file: any) => {
+  const handleAddProducts = async (value: Product, files: any) => {
     try {
-      const img = file ? await uploadImgToStorage(file) : undefined;
+      const images = files ? await uploadImgToStorage(files) : undefined;
+
       await addProduct({
-        variables: { add: { ...value, img } },
+        variables: { add: { ...value, images } },
       });
+
       console.log("Added product successfully");
     } catch {
-      console.log("error add products");
+      alert("error add products");
     }
   };
 

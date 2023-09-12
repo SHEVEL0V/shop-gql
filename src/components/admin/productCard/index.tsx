@@ -26,7 +26,7 @@ export default function ProductCardAdmin({ data, handleCheckBox }: Props) {
       <div onClick={handleNavigate} className={s.containerInfo}>
         <div className={s.containerImg}>
           <Image
-            src={data.img}
+            src={data.images[0]}
             alt={data.name}
             className={s.img}
             width={500}

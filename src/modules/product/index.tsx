@@ -18,7 +18,7 @@ export default function Product({ data, id }: Props) {
   const dispatch = useDispatch();
   const { isDisable } = useItemByBasket(id);
 
-  const { img, price, name, desc, params, rating } = data;
+  const { images, price, name, desc, params, rating } = data;
 
   const handleAddProducts = () => dispatch(setBasket(data));
 
@@ -26,10 +26,15 @@ export default function Product({ data, id }: Props) {
     <div className="flex-row  w-[1200px] mx-auto p-4 ">
       <div className=" mb-8 md:flex">
         <Slider>
-          <Image width={500} height={400} src={img} alt="product image" />
-          <Image width={500} height={400} src={img} alt="product image" />
-          <Image width={500} height={400} src={img} alt="product image" />
-          <Image width={500} height={400} src={img} alt="product image" />
+          {images.map((img, i) => (
+            <Image
+              key={i}
+              width={500}
+              height={400}
+              src={img}
+              alt="product image"
+            />
+          ))}
         </Slider>
 
         <div>

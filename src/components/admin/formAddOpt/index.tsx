@@ -4,6 +4,7 @@ import TextField from "@mui/material/TextField";
 import Autocomplete from "@/UI/autocomplete";
 import Button from "@mui/material/Button";
 import s from "./style.module.css";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 import type { ItemParams, Product } from "@/types";
 type Props = {
@@ -38,7 +39,7 @@ export default function FormAddOpt({ params, setForm, form }: Props) {
       {options?.map((item, index) => (
         <div key={index} className={s.itemContainer}>
           <Autocomplete
-            style={{ width: "50%" }}
+            style={{ width: "30%" }}
             options={autocomplete}
             name="name"
             onChange={(value) => handleChangeInput("name", value, index)}
@@ -46,17 +47,22 @@ export default function FormAddOpt({ params, setForm, form }: Props) {
           />
 
           <TextField
-            sx={{ width: "100%", marginLeft: "10px" }}
+            sx={{ width: "70%", marginLeft: "10px" }}
             label={"value"}
             value={item.value || ""}
             onChange={(e) => handleChangeInput("value", e.target.value, index)}
           />
           <Button
-            sx={{ marginLeft: "10px", height: "55px" }}
+            sx={{
+              marginLeft: "10px",
+              padding: "0",
+              height: "55px",
+              borderRadius: "5px",
+            }}
             variant="contained"
             onClick={() => handleDeleteOptions(index)}
           >
-            delete
+            <DeleteIcon />
           </Button>
         </div>
       ))}

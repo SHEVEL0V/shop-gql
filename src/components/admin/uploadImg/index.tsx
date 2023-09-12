@@ -1,33 +1,45 @@
 /** @format */
 
 import Button from "@mui/material/Button";
-
-import s from "./style.module.css";
 import Image from "next/image";
+import { StaticImageData } from "next/image";
 
 type Props = {
-  setFile: React.Dispatch<React.SetStateAction<any>>;
-  urlImg: string;
+  setFiles: React.Dispatch<React.SetStateAction<any>>;
+  images: StaticImageData[] | [string];
   setUrlImg: React.Dispatch<React.SetStateAction<any>>;
 };
 
-export default function UploadImg({ setFile, urlImg, setUrlImg }: Props) {
-  const handleInputFile = async (e: any) => {
-    const file = e.target.files[0];
-    setUrlImg(URL.createObjectURL(file));
-    setFile(file);
+export default function UploadImg({ setFiles, images, setUrlImg }: Props) {
+  const handleInputFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { files } = e.target;
+    if (files) {
+      setUrlImg(Object.values(files).map((file) => URL.createObjectURL(file)));
+      setFiles(Object.values(files));
+    }
   };
 
+  const grid = images.length > 1 ? " grid grid-cols-2 gap-2 " : "";
+
   return (
-    <div className={s.upload}>
-      <Image
-        className={s.img}
-        src={urlImg}
-        alt="product"
-        width={410}
-        height={400}
-      />
-      <Button variant="contained" component="label" sx={{ marginTop: "auto" }}>
+    <div className="max-w-[600px] flex-row  mb-4">
+      <div className={grid}>
+        {images.map((image: any, i: number) => (
+          <Image
+            key={i}
+            className={" border-2 border-blue-500 rounded"}
+            src={image}
+            alt="product image"
+            width={410}
+            height={400}
+          />
+        ))}
+      </div>
+      <Button
+        variant="contained"
+        component="label"
+        sx={{ marginTop: "10px", width: "100%" }}
+      >
         Upload
         <input
           hidden

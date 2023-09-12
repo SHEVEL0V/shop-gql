@@ -29,14 +29,21 @@ export default async function UploadImg(
     try {
       if (!files) throw new Error("Not file image");
 
-      const { filepath, newFilename, originalFilename } = files.image;
+      //--------upload files to google storage--------------------------------
+      const response = await Promise.all(
+        Object.values(files).map(async (file: any) => {
+          const { filepath, newFilename, originalFilename } = file;
 
-      //--------upload file to google storage--------------------------------
-      const [File]: any = await storage.bucket("buket-image").upload(filepath, {
-        destination: newFilename + "-" + originalFilename,
-      });
+          const [File] = await storage.bucket("buket-image").upload(filepath, {
+            destination: newFilename + "-" + originalFilename,
+          });
+
+          return File.metadata.mediaLink;
+        })
+      );
+
       //--------response success--------------------------------
-      return res.status(200).json({ url: File.metadata.mediaLink });
+      return res.status(200).json({ images: response });
     } catch {
       //--------response failed--------------------------------
       return res.status(400).json({ message: "Error upload image" });

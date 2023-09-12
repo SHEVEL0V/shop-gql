@@ -7,7 +7,7 @@ const res = gql`
     name
     price
     rating
-    img
+    images
     type
     brand
     desc
@@ -38,7 +38,7 @@ export const GET_PRODUCTS = gql`
       results {
         desc
         brand
-        img
+        images
         rating
         price
         name
