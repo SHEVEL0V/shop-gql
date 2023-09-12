@@ -5,17 +5,17 @@ import Image from "next/image";
 import { StaticImageData } from "next/image";
 
 type Props = {
-  setFiles: React.Dispatch<React.SetStateAction<any>>;
+  setFile: React.Dispatch<React.SetStateAction<any>>;
   images: StaticImageData[] | [string];
-  setUrlImg: React.Dispatch<React.SetStateAction<any>>;
+  setImages: React.Dispatch<React.SetStateAction<any>>;
 };
 
-export default function UploadImg({ setFiles, images, setUrlImg }: Props) {
+export default function UploadImg({ setFile, images, setImages }: Props) {
   const handleInputFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const { files } = e.target;
     if (files) {
-      setUrlImg(Object.values(files).map((file) => URL.createObjectURL(file)));
-      setFiles(Object.values(files));
+      setImages(Object.values(files).map((file) => URL.createObjectURL(file)));
+      setFile(Object.values(files));
     }
   };
 
