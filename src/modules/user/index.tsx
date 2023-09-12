@@ -39,7 +39,7 @@ export default function UpdateUser({ data, updateUser }: Props) {
   return (
     <div className={s.container}>
       <div className="flex w-full">
-        <UploadImg setFile={setFile} images={urlImg} setImages={setUrlImg} />
+        <UploadImg setFiles={setFile} images={urlImg} setImages={setUrlImg} />
         <div className="w-full">
           <FormMain data={form} form={FORM} setForm={setForm} required={true} />
           <TextField
