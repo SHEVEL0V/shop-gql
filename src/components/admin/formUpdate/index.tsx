@@ -55,7 +55,7 @@ export default function ProductsUpdateForm({
 
   return (
     <div className={s.container}>
-      <UploadImg setFiles={setFiles} images={images} setUrlImg={setImages} />
+      <UploadImg setFiles={setFiles} images={images} setImages={setImages} />
       <div className=" w-full">
         <Autocomplete
           options={desc?.types}
