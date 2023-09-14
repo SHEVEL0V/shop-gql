@@ -5,9 +5,9 @@ import Image from "next/image";
 
 export default function Logo() {
   return (
-    <IconButton>
-      <Image src="/logo.svg" alt="logo" height={"40"} width={"40"} />
-      <div className=" text-slate-50"> A-Store</div>
+    <IconButton sx={{ display: "flex" }}>
+      <Image src="/logo.svg" alt="logo" height={"25"} width={"25"} />
+      <div className=" text-slate-50 ml-2 text-xl"> A-Store</div>
     </IconButton>
   );
 }
