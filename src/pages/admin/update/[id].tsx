@@ -46,7 +46,6 @@ export default function UpdateProducts() {
         <FormUpdateItem
           loading={loadingUpdate}
           data={product}
-          title="Update"
           mutation={handleUpdateProduct}
         />
       )}

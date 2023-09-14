@@ -20,13 +20,14 @@ export default function Orders() {
   });
   const [updateOrder] = useMutation(schemasGql.UPDATE_ORDER);
 
-  const handleUpdateOrder = (status: string) =>
+  const handleUpdateOrder = (status: string) => {
     updateOrder({ variables: { update: { ids, status } } })
       .then(() => {
         refetch();
         toast.success("success update order");
       })
       .catch(() => toast.error("error update order"));
+  };
 
   const boolean = ids.length === 0;
 

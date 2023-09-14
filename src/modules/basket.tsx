@@ -26,13 +26,14 @@ export default function Basket() {
     .reduce((acc, v) => acc + v, 0);
 
   const handleClick = () => dispatch(setButtonBasket());
-  const handleOrder = () =>
-    addOrders({ variables: { add: basket } })
+  const handleOrder = async () => {
+    await addOrders({ variables: { add: basket } })
       .then(() => {
         dispatch(removeBasket());
         toast.success("Order accepted");
       })
       .catch((err) => toast.error(err));
+  };
 
   return (
     <div>

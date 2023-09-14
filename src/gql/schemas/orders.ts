@@ -25,18 +25,22 @@ const UserOrder = gql`
 
 export const GET_ORDER = gql`
   query GetOrders($query: QueryOrder) {
-    getOrders(query: $query) ${UserOrder}}
+    getOrders(query: $query)${UserOrder}}
   
 `;
 
 export const ADD_ORDER = gql`
   mutation AddOrders($add: [AddOrder]) {
-    addOrder(add: $add) ${UserOrder}
+    addOrder(add: $add) {
+      createdAt
+    }
   }
 `;
 
 export const UPDATE_ORDER = gql`
   mutation UpdateOrder($update: UpdateOrder) {
-    updateOrder(update: $update)${UserOrder}
+    updateOrder(update: $update) {
+      status
+    }
   }
 `;

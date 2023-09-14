@@ -29,8 +29,8 @@ export default function OrderCard({ data, handleCheckBox }: Props) {
     status === "PENDING"
       ? "bg-green-200"
       : status === "RESOLVED"
-      ? "bg-red-200"
-      : "bg-blue-200";
+      ? "bg-blue-200"
+      : "bg-red-200";
 
   return (
     <Card className="flex p-1 m-1 gap-x-2 border shadow">
@@ -43,7 +43,7 @@ export default function OrderCard({ data, handleCheckBox }: Props) {
         <Text>status: {status}</Text>
       </div>
 
-      <div className="flex flex-col w-full p-1 border rounded">
+      <div className="flex gap-1 flex-col w-full p-1 border rounded">
         {orders?.map((el: any, ind: number) => (
           <div
             className="p-1 flex gap-x-2 border rounded bg-slate-100"
@@ -60,7 +60,7 @@ export default function OrderCard({ data, handleCheckBox }: Props) {
             </div>
           </div>
         ))}
-        <div className="mt-auto ml-auto p-1 rounded bg-red-200">
+        <div className="mt-auto ml-auto p-1 rounded bg-green-300">
           <Text>
             total price:<b>{totalPrice}</b>
           </Text>

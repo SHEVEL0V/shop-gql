@@ -70,7 +70,7 @@ export default function FormAddItem({ loading = false, mutation }: Props) {
           setForm={setForm}
         />
         <FormAddOpt params={desc?.params} setForm={setForm} form={form} />
-        <div className="flex p-4  border border-slate-500 rounded ">
+        <div className="flex items-center p-4  border border-gray-500 rounded ">
           <Text>Add product card</Text>
           <LoadingButton
             loading={loading}

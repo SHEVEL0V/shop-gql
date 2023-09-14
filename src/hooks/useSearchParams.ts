@@ -23,6 +23,7 @@ export default function useSearchParamsCustom() {
       "brand",
       "type",
       "price",
+      "status",
       "date",
     ];
 

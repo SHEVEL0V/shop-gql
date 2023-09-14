@@ -15,7 +15,6 @@ import { LoadingButton } from "@mui/lab";
 
 type Props = {
   data: Product;
-  title?: string;
   loading: boolean;
   mutation: (value: Product, files: any) => Promise<void>;
 };
@@ -23,7 +22,7 @@ type Props = {
 export default function FormUpdateItem({
   loading = false,
   data,
-  title = "",
+
   mutation,
 }: Props) {
   const [files, setFiles] = useState(false);
@@ -40,11 +39,6 @@ export default function FormUpdateItem({
 
   const handleSetForm = (value: {}) =>
     setForm((state: any) => ({ ...state, ...value }));
-
-  const disabled = () => {
-    const arr = Object.values(form);
-    return arr.length >= 4 && !arr.includes("") && !arr.includes(0);
-  };
 
   return (
     <Container>
@@ -69,19 +63,18 @@ export default function FormUpdateItem({
         />
 
         <FormAddOpt params={desc?.params} setForm={setForm} form={form} />
-        <div>
+        <div className="flex p-4 items-center border border-gray-500 rounded">
           <div>
-            <Text>{title} product card</Text>
+            <Text>Update product card</Text>
           </div>
           <LoadingButton
             loading={loading}
             onClick={handlerFetch}
-            disabled={!disabled()}
             variant="contained"
             color="secondary"
             sx={{ marginLeft: "auto" }}
           >
-            {title}
+            Update
           </LoadingButton>
         </div>
       </div>

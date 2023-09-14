@@ -31,7 +31,7 @@ export default function CardBasket({ data }: Props) {
 
   return (
     <div className="bg-slate-100 rounded shadow  p-2 flex">
-      <div className="flex flex-col justify-between mr-1 items-center rounded-2xl bg-slate-200">
+      <div className="flex flex-col justify-between mr-1 items-center rounded-2xl bg-slate-200 border">
         <button className="w-7" onClick={handleCountIncrement}>
           <Text>+</Text>
         </button>

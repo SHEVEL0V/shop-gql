@@ -41,8 +41,9 @@ export default function Header() {
         <div className="ml-auto"></div>
         {visibilityStartPage && <SearchInput />}
         {visibilityAdmin && (
-          <div className="">
+          <div className="flex ">
             <Button
+              sx={{ minWidth: "90px" }}
               variant="contained"
               color={handleColorButton("add")}
               onClick={() => navigate("/admin/add")}
@@ -50,7 +51,7 @@ export default function Header() {
               add
             </Button>
             <Button
-              sx={{ marginInline: "5px" }}
+              sx={{ marginInline: "5px", minWidth: "90px" }}
               variant="contained"
               color={handleColorButton("list")}
               onClick={() => navigate("/admin/list")}
@@ -58,7 +59,7 @@ export default function Header() {
               list
             </Button>
             <Button
-              sx={{ marginRight: "5px" }}
+              sx={{ marginRight: "5px", minWidth: "90px" }}
               variant="contained"
               color={handleColorButton("orders")}
               onClick={() => navigate("/admin/orders")}

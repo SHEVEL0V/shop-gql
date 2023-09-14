@@ -10,8 +10,6 @@ import Typography from "@mui/material/Typography";
 import useSearchParams from "@/hooks/useSearchParams";
 import BtbClean from "@/UI/btn/btnClean";
 
-import s from "./style.module.css";
-
 type Props = {
   updateOrder: (value: string) => void;
   disabled: boolean;
