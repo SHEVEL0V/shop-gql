@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/modules/sidebar/index.tsx",
+    "src/modules/sidebar.tsx",
     "src/gql/settings.js",
     "src/hooks/use",
     "src/gql/index.ts",

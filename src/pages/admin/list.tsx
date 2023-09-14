@@ -7,7 +7,7 @@ import Sidebar from "@/modules/sidebar";
 import { PrivateRoute } from "@/modules/router";
 import useSearchParamsCustom from "@/hooks/useSearchParams";
 import useCheckBox from "@/hooks/useCheckBox";
-import ListContainer from "@/components/listContainer";
+import ListContainer from "@/components/container/containerPagination";
 import { useQuery, useMutation } from "@apollo/client";
 import { schemasGql } from "@/gql";
 

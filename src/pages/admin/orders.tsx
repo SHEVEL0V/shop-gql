@@ -4,7 +4,7 @@ import { useQuery, useMutation } from "@apollo/client";
 import { schemasGql } from "@/gql";
 import { toast } from "react-toastify";
 import OrderCard from "@/components/admin/orderCard";
-import ListContainer from "@/components/listContainer";
+import ListContainer from "@/components/container/containerPagination";
 import FilterOrder from "@/components/admin/filterOrder";
 import useSearchParams from "@/hooks/useSearchParams";
 import { PrivateRoute } from "@/modules/router";

@@ -1,4 +1,6 @@
 /** @format */
+
+/** @format */
 import type { NextApiRequest, NextApiResponse } from "next";
 import NextCors from "nextjs-cors";
 import formidable from "formidable";
@@ -7,9 +9,10 @@ import { Storage } from "@google-cloud/storage";
 
 export const config = { api: { bodyParser: false } };
 
-export default async function UploadImg(
+export default async function index(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
+  next: NextApiResponse
 ) {
   //----cors--------------------------------
   await NextCors(req, res, {

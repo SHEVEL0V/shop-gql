@@ -2,8 +2,7 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { schemasGql } from "@/gql";
 import { useRouter } from "next/router";
-import { filterRes } from "@/helpers/filterRes";
-import ProductsUpdateForm from "@/components/admin/formUpdate";
+import FormUpdateItem from "@/components/admin/formUpdateItem";
 import Loader from "@/UI/loader";
 import { toast } from "react-toastify";
 import { PrivateRoute } from "@/modules/router";
@@ -14,24 +13,29 @@ import type { Product } from "@/types";
 export default function UpdateProducts() {
   const { id } = useRouter().query;
 
+  //------get-product--------------------------------
   const { data, loading } = useQuery(schemasGql.GET_PRODUCTS_BY_ID, {
     variables: { id },
   });
+  const product = data?.getProductById;
 
-  const [updateProduct, { loading: loadUpdate }] = useMutation(
+  //-------update-product--------------------------------
+  const [updateProduct, { loading: loadingUpdate }] = useMutation(
     schemasGql.UPDATE_PRODUCT
   );
 
-  const res = filterRes(data?.getProductById);
-
   const handleUpdateProduct = async (value: Product, file: any) => {
-    const img = file ? await uploadImgToStorage(file) : undefined;
+    try {
+      const images = file ? await uploadImgToStorage(file) : undefined;
 
-    await updateProduct({
-      variables: { update: { id, ...value, img } },
-    })
-      .then(() => toast.success("Product updated successfully"))
-      .catch(() => toast.error("Product updated error"));
+      await updateProduct({
+        variables: { update: { ...value, images } },
+      });
+
+      toast.success("Product updated successfully");
+    } catch {
+      toast.error("Product updated error");
+    }
   };
 
   return (
@@ -39,8 +43,9 @@ export default function UpdateProducts() {
       {loading ? (
         <Loader />
       ) : (
-        <ProductsUpdateForm
-          data={res}
+        <FormUpdateItem
+          loading={loadingUpdate}
+          data={product}
           title="Update"
           mutation={handleUpdateProduct}
         />

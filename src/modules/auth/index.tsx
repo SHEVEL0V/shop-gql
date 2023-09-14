@@ -12,7 +12,6 @@ import ModalCustom from "@/components/modal";
 import GoogleLogin from "./googleAuth";
 import { Button, Typography } from "@mui/material";
 import { toast } from "react-toastify";
-import s from "./style.module.css";
 
 import type { UserToken, ObjType } from "@/types";
 
@@ -90,13 +89,13 @@ export default function Auth() {
         <Button
           disabled={false}
           variant="contained"
-          sx={{ width: "200px", marginInline: "auto" }}
+          sx={{ width: "200px", marginInline: "auto", marginTop: "10px" }}
           onClick={handleClickButtonAuth}
         >
           {checked ? "sing in" : "sing up"}
         </Button>
-        <div className={s.authContainer}>
-          <div className={s.switch}>
+        <div className="flex mt-4">
+          <div className="flex items-center ">
             <Switch onChange={() => setChecked((s) => !s)} />
             <Typography component="h1" variant="body1" color="text.secondary">
               {checked
@@ -104,7 +103,9 @@ export default function Auth() {
                 : "Already have an account? Sign in"}
             </Typography>
           </div>
-          <GoogleLogin auth={handleAuthGoogle} error={renderError} />
+          <div className="ml-auto">
+            <GoogleLogin auth={handleAuthGoogle} error={renderError} />
+          </div>
         </div>
       </ModalCustom>
     </div>

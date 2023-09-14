@@ -2,7 +2,6 @@
 
 import React from "react";
 import Modal from "@mui/material/Modal";
-import s from "./style.module.css";
 
 type Props = { children: React.ReactNode; open: boolean; onClick: () => void };
 
@@ -21,7 +20,9 @@ export default function ModalCustom({
       }}
       closeAfterTransition={true}
     >
-      <div className={s.container}>{children}</div>
+      <div className="max-w-[600px] max-h-[70vh] p-5 mx-auto flex flex-col rounded bg-slate-200 ">
+        {children}
+      </div>
     </Modal>
   );
 }

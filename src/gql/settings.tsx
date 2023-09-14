@@ -29,7 +29,7 @@ export default function Apollo({ children }: Props) {
 
   const client = new ApolloClient({
     connectToDevTools: true,
-    cache: new InMemoryCache(),
+    cache: new InMemoryCache({ addTypename: false }),
     link: authLink.concat(httpLink),
   });
 

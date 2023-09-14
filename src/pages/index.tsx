@@ -3,10 +3,13 @@
 import Sidebar from "../modules/sidebar";
 import { useAppSelector } from "@/redux/hooks";
 import useSearchParams from "../hooks/useSearchParams";
-import ListProducts from "../modules/list";
+import CardProduct from "@/modules/cardProduct";
+import ContainerPagination from "@/components/container/containerPagination";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useQuery } from "@apollo/client";
 import { schemasGql } from "../gql";
+
+import { Product } from "@/types";
 
 export default function Main() {
   const { params: query } = useSearchParams();
@@ -24,7 +27,13 @@ export default function Main() {
     <div className="flex w-full ">
       <Sidebar />
       {visibility && (
-        <ListProducts data={results} count={count} isLoading={loading} />
+        <ContainerPagination count={count} isLoading={loading}>
+          <div className="grid p-3 gap-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
+            {results.map((el: Product) => (
+              <CardProduct key={el._id} data={el} />
+            ))}
+          </div>
+        </ContainerPagination>
       )}
     </div>
   );

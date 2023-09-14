@@ -4,7 +4,7 @@ export type User = {
   name?: string;
   email?: string;
   telephone?: string;
-  avatarURL?: string;
+  avatarURL?: [string];
   delivery?: string;
   password?: string;
   role?: string;
@@ -25,7 +25,7 @@ export type Product = {
   price: number;
   type: string;
   brand: string;
-  images: string[];
+  images: [string];
   name: string;
   desc: string;
   rating: number;

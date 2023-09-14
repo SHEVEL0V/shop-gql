@@ -3,7 +3,6 @@
 import React from "react";
 import { schemasGql } from "@/gql";
 import { useMutation, useQuery } from "@apollo/client";
-import { filterRes } from "@/helpers/filterRes";
 import { toast } from "react-toastify";
 import UpdateUser from "@/modules/user";
 import Loader from "@/UI/loader";
@@ -31,10 +30,7 @@ export default function User() {
       {loading ? (
         <Loader />
       ) : (
-        <UpdateUser
-          data={filterRes(data?.getUser)}
-          updateUser={handleUpdateUser}
-        />
+        <UpdateUser data={data?.getUser} updateUser={handleUpdateUser} />
       )}
     </>
   );

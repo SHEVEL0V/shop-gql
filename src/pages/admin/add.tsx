@@ -1,7 +1,7 @@
 /** @format */
 import { toast } from "react-toastify";
 import { PrivateRoute } from "@/modules/router";
-import ProductsUpdateForm from "@/components/admin/formUpdate";
+import FormAddItem from "@/components/admin/formAddItem";
 import { useMutation } from "@apollo/client";
 import { schemasGql } from "@/gql";
 import { uploadImgToStorage } from "@/services/fetch";
@@ -9,7 +9,7 @@ import { uploadImgToStorage } from "@/services/fetch";
 import type { Product } from "@/types";
 
 export default function AddProduct() {
-  const [addProduct] = useMutation(schemasGql.ADD_PRODUCT, {
+  const [addProduct, { loading }] = useMutation(schemasGql.ADD_PRODUCT, {
     refetchQueries: [{ query: schemasGql.GET_PRODUCTS }],
   });
 
@@ -29,7 +29,7 @@ export default function AddProduct() {
 
   return (
     <PrivateRoute>
-      <ProductsUpdateForm mutation={handleAddProducts} title="Add" />
+      <FormAddItem mutation={handleAddProducts} loading={loading} />
     </PrivateRoute>
   );
 }
