@@ -22,7 +22,7 @@ export default function UploadImg({ setFiles, images, setImages }: Props) {
   const grid = images.length > 1 ? " grid grid-cols-2 gap-2 " : "";
 
   return (
-    <div className="w-full flex-row  mb-4">
+    <div className="max-w-[500px] flex-row  mb-4">
       <div className={grid}>
         {images.map((image: any, i: number) => (
           <Image

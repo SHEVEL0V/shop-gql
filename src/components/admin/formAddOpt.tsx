@@ -34,7 +34,7 @@ export default function FormAddOpt({ params, setForm, form }: Props) {
   const autocomplete = params.map(({ name }) => name);
 
   return (
-    <div className=" mb-4 p-2 border border-slate-500 rounded ">
+    <div className="min-h-[70px] mb-4 p-2 border border-gray-400  rounded ">
       {options?.map((item, index) => (
         <div key={index} className="flex mb-2 ">
           <Autocomplete

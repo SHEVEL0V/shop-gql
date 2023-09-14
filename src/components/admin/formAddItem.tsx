@@ -51,7 +51,7 @@ export default function FormAddItem({ loading = false, mutation }: Props) {
   return (
     <Container>
       <UploadImg setFiles={setFiles} images={images} setImages={setImages} />
-      <div className=" w-full">
+      <div className="w-full ">
         <Autocomplete
           options={desc?.types}
           name="type"
@@ -70,7 +70,7 @@ export default function FormAddItem({ loading = false, mutation }: Props) {
           setForm={setForm}
         />
         <FormAddOpt params={desc?.params} setForm={setForm} form={form} />
-        <div className="flex items-center p-4  border border-gray-500 rounded ">
+        <div className="flex items-center p-4  border border-gray-400 rounded ">
           <Text>Add product card</Text>
           <LoadingButton
             loading={loading}
@@ -84,6 +84,7 @@ export default function FormAddItem({ loading = false, mutation }: Props) {
           </LoadingButton>
         </div>
       </div>
+      <div className="w-full col-span-2 h-36 border rounded border-gray-400"></div>
     </Container>
   );
 }
