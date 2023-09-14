@@ -30,7 +30,7 @@ export default function CardBasket({ data }: Props) {
   const handleDeleteProduct = () => dispatch(removeBasketEl({ id }));
 
   return (
-    <div className="bg-slate-200 rounded p-2 flex">
+    <div className="bg-slate-100 rounded p-2 flex">
       <div className="flex flex-col justify-between mr-1 items-center rounded-2xl bg-slate-100">
         <button className="w-7" onClick={handleCountIncrement}>
           <Text>+</Text>
