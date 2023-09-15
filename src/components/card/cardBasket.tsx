@@ -7,8 +7,7 @@ import {
   decrementsQty,
   incrementsQty,
 } from "@/redux/basket/slice";
-import Button from "@mui/material/Button";
-import DeleteIcon from "@mui/icons-material/Delete";
+import BtnDelete from "@/UI/btn/btnDelete";
 import Image from "next/image";
 import Text from "@/UI/text";
 
@@ -57,15 +56,7 @@ export default function CardBasket({ data }: Props) {
       </div>
       <div className="flex items-center ml-auto">
         <Text> &#8372;{finalPrice}</Text>
-        <Button
-          sx={{
-            height: "60px",
-            borderRadius: "100%",
-          }}
-          onClick={handleDeleteProduct}
-        >
-          <DeleteIcon />
-        </Button>
+        <BtnDelete onClick={handleDeleteProduct} />
       </div>
     </div>
   );

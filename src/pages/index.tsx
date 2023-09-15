@@ -3,7 +3,7 @@
 import Sidebar from "../modules/sidebar";
 import { useAppSelector } from "@/redux/hooks";
 import useSearchParams from "../hooks/useSearchParams";
-import CardProduct from "@/modules/cardProduct";
+import CardProduct from "@/components/card/cardProduct";
 import ContainerPagination from "@/components/container/containerPagination";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useQuery } from "@apollo/client";

@@ -9,6 +9,8 @@ import { Card } from "@mui/material";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import ButtonCount from "@/components/button/buttonsCountItem";
 import Image from "next/image";
+import Text from "@/UI/text";
+
 import placeholder from "@/assets/img.png";
 
 import type { Product } from "@/types";
@@ -46,7 +48,9 @@ export default function CardProduct({ data }: Props) {
         blurDataURL={placeholder.src}
         placeholder="blur"
       />
-      <h2 className="text-base h-10 mt-1">{name}</h2>
+      <div className="h-10 mb-2">
+        <Text>{name}</Text>
+      </div>
       <RatingItem id={_id} rating={rating} />
       <div className="flex items-center">
         <h3 className="font-bold text-green-600 text-lg">

@@ -23,7 +23,7 @@ export default function RatingItem({ id, rating }: Props) {
       .catch(() => toast.error("Error updating rating , please authenticate"));
 
   return (
-    <div className="mt-2">
+    <div>
       <Rating
         sx={{ marginBottom: 1, marginLeft: 1 }}
         value={rating}

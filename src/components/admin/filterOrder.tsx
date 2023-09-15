@@ -10,12 +10,7 @@ import Typography from "@mui/material/Typography";
 import useSearchParams from "@/hooks/useSearchParams";
 import BtbClean from "@/UI/btn/btnClean";
 
-type Props = {
-  updateOrder: (value: string) => void;
-  disabled: boolean;
-};
-
-export default function FilterOrder({ updateOrder, disabled = false }: Props) {
+export default function FilterOrder() {
   const [date, setDate] = useState<any>({});
   const [status, setStatus] = useState<string>("");
   const { setParams } = useSearchParams();
@@ -24,9 +19,6 @@ export default function FilterOrder({ updateOrder, disabled = false }: Props) {
     date.$y ? { date: [date.$y, date.$M + 1, date.$D] } : { date: [] };
 
   const handleFilter = () => setParams({ status, ...dataParams() });
-
-  const handleClickButton = (value: string) =>
-    value ? updateOrder(value) : updateOrder("");
 
   return (
     <div className="p-2 flex flex-col border shadow  ">
@@ -47,45 +39,12 @@ export default function FilterOrder({ updateOrder, disabled = false }: Props) {
         onChange={(value) => setStatus(value)}
       />
       <Button
-        sx={{ marginTop: "15px", height: "60px" }}
+        sx={{ marginTop: "15px", height: "50px" }}
         variant="contained"
         onClick={handleFilter}
       >
         search
       </Button>
-      <Typography
-        sx={{ fontSize: 20, marginTop: "15px", marginBottom: "10px" }}
-        color="text.secondary"
-      >
-        Change status:
-      </Typography>
-      <div style={{ display: "flex" }}>
-        <Button
-          color="success"
-          variant="contained"
-          disabled={disabled}
-          onClick={() => handleClickButton("PENDING")}
-        >
-          pen
-        </Button>
-        <Button
-          sx={{ marginInline: "10px" }}
-          variant="contained"
-          disabled={disabled}
-          color="primary"
-          onClick={() => handleClickButton("RESOLVED")}
-        >
-          res
-        </Button>
-        <Button
-          variant="contained"
-          disabled={disabled}
-          color="error"
-          onClick={() => handleClickButton("REJECTED")}
-        >
-          rej
-        </Button>
-      </div>
     </div>
   );
 }
