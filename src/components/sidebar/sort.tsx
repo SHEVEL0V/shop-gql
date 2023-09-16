@@ -16,7 +16,7 @@ export default function Sort() {
 
   return (
     <Autocomplete
-      sx={{ marginBottom: "10px" }}
+      className="my-2 border rounded"
       disablePortal
       options={filter}
       getOptionLabel={(option) => option.name || ""}

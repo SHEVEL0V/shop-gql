@@ -1,46 +1,30 @@
 /** @format */
 
-import React, { useState } from "react";
-import BtnSearch from "@/UI/btn/btnSearch";
-import Checkbox from "@mui/material/Checkbox";
-import According from "@/UI/according";
+import React from "react";
+import BtbClean from "@/UI/btn/btnClean";
 import useSearchParamsCustom from "@/hooks/useSearchParams";
-import { useSetFormOptions } from "@/hooks/useSetFormOptions";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Typography from "@mui/material/Typography";
+import OptionsCard from "./optionsCard";
 
 type Props = {
   options: { name: string; value: string[] }[];
 };
 
 export default function Options({ options = [] }: Props) {
-  const [form, setForm] = useState<any>({});
-
-  const { setParams } = useSearchParamsCustom();
-
-  const handelSearch = () => setParams({ ...form, page: 1 });
-
-  const { handelChange } = useSetFormOptions(setForm);
-
+  const { cleanParams } = useSearchParamsCustom();
   return (
-    <According title="options">
+    <div className="my-2  border-2 rounded ">
+      <div className="p-3  text-gray-500">options:</div>
       {options?.map(({ name, value }, ind) => (
-        <According
-          key={ind}
-          title={name}
-          border={form[name] ? form[name].length > 0 : false}
-        >
-          {value.map((el) => (
-            <div
-              key={el}
-              className="flex items-center mb-2 bg-slate-100 border rounded "
-            >
-              <span className="ml-2 mr-auto text-sm">{el}</span>
-              <Checkbox name={name} value={el} onChange={handelChange} />
-            </div>
-          ))}
-        </According>
+        <OptionsCard key={ind} title={name} value={value} />
       ))}
-      <p></p>
-      <BtnSearch onClick={handelSearch}>Search</BtnSearch>
-    </According>
+      <div className="m-2">
+        <BtbClean onClick={() => cleanParams()}>Clean</BtbClean>
+      </div>
+    </div>
   );
 }

@@ -6,13 +6,14 @@ import Button from "@mui/material/Button";
 import CleaningServicesIcon from "@mui/icons-material/CleaningServices";
 
 type Props = {
+  children?: string;
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
-export default function BtbClean({ onClick }: Props) {
+export default function BtbClean({ onClick, children }: Props) {
   return (
     <Button onClick={onClick} variant="contained">
-      <CleaningServicesIcon />
+      {children} <CleaningServicesIcon />
     </Button>
   );
 }

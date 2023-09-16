@@ -67,13 +67,21 @@ export default function useSearchParamsCustom() {
   //----get search params by key--------------------
   const getParamByKey = (key: string) => {
     const params = new URLSearchParams(document.location.search);
-    const getParams = params.get(key);
-    return getParams ? String(getParams).split("-") : [];
+    const getParams = params.get(key) || undefined;
+    return getParams ? getParams.split("-") : [];
   };
 
   //-------set params--------------------
   const setParams = (value: ValueType) =>
     router.push({ query: handleParams(value) });
 
-  return { setParams, getParamByKey, params: filterParams(params) };
+  //-------clean params--------------------
+  const cleanParams = () => router.push({ query: {} });
+
+  return {
+    setParams,
+    cleanParams,
+    getParamByKey,
+    params: filterParams(params),
+  };
 }

@@ -1,6 +1,6 @@
 /** @format */
 
-export default function useCheckBox(
+export function useCheckBox(
   setOptions: React.Dispatch<React.SetStateAction<string[]>>
 ) {
   const handleCheckBox = (e: React.ChangeEvent<HTMLInputElement>) => {
