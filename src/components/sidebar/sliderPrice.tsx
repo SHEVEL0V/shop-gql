@@ -27,21 +27,21 @@ export default function PriceSlider({ price = [0, 0] }: Props) {
   const handleSearch = () => setParams({ [title]: value });
 
   return (
-    <Box>
+    <div className="p-3 border-2 rounded mb-2 hover:bg-slate-100">
       <div className="flex">
         <input
-          className="flex h-7 w-12 mr-2 border rounded p-1 text-xs "
+          className="flex h-10 w-14 mr-2 border rounded p-1 text-sm "
           type="text"
           value={value[0]}
           onChange={handleInputMin}
         />
         <input
-          className="flex h-7 w-12 mr-2 border rounded p-1 text-xs"
+          className="flex h-10 w-14 mr-2 border rounded p-1 text-sm"
           type="text"
           value={value[1]}
           onChange={handleInputMax}
         />
-        <ButtonSearch onClick={handleSearch}>Ok</ButtonSearch>
+        <ButtonSearch onClick={handleSearch}></ButtonSearch>
       </div>
 
       <Slider
@@ -56,6 +56,6 @@ export default function PriceSlider({ price = [0, 0] }: Props) {
         valueLabelDisplay="auto"
         disableSwap
       />
-    </Box>
+    </div>
   );
 }

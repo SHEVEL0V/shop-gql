@@ -9,6 +9,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Typography from "@mui/material/Typography";
 import OptionsCard from "./optionsCard";
+import According from "@/UI/according";
 
 type Props = {
   options: { name: string; value: string[] }[];
@@ -17,14 +18,13 @@ type Props = {
 export default function Options({ options = [] }: Props) {
   const { cleanParams } = useSearchParamsCustom();
   return (
-    <div className="my-2  border-2 rounded ">
-      <div className="p-3  text-gray-500">options:</div>
+    <According title="options:">
       {options?.map(({ name, value }, ind) => (
         <OptionsCard key={ind} title={name} value={value} />
       ))}
-      <div className="m-2">
+      <div className="p-2">
         <BtbClean onClick={() => cleanParams()}>Clean</BtbClean>
       </div>
-    </div>
+    </According>
   );
 }

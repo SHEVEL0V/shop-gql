@@ -6,7 +6,7 @@ import ProductCardAdmin from "@/components/admin/productCard";
 import Sidebar from "@/modules/sidebar";
 import { PrivateRoute } from "@/modules/router";
 import useSearchParamsCustom from "@/hooks/useSearchParams";
-import useCheckBox from "@/hooks/useCheckBox";
+import { useCheckBox } from "@/hooks/useCheckBox";
 import ListContainer from "@/components/container/containerPagination";
 import { useQuery, useMutation } from "@apollo/client";
 import { schemasGql } from "@/gql";
@@ -37,16 +37,18 @@ export default function List() {
   return (
     <PrivateRoute>
       <Sidebar>
-        <LoadingButton
-          sx={{ width: "100%" }}
-          variant="contained"
-          color="error"
-          disabled={disabled}
-          onClick={handleRemoveProducts}
-          loading={loadingRemove}
-        >
-          remove
-        </LoadingButton>
+        <div className="p-2">
+          <LoadingButton
+            sx={{ width: "100%" }}
+            variant="contained"
+            color="error"
+            disabled={disabled}
+            onClick={handleRemoveProducts}
+            loading={loadingRemove}
+          >
+            remove
+          </LoadingButton>
+        </div>
       </Sidebar>
       <ListContainer isLoading={loading} count={count}>
         {results?.map((data: any) => (

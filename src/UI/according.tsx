@@ -17,9 +17,13 @@ type Props = {
 export default function According({ title, children }: Props) {
   return (
     <Accordion
-      className="border "
       sx={{
         minHeight: "55px",
+        borderRadius: 0,
+        border: "none",
+        "&:hover": {
+          backgroundColor: "#f1f5f9",
+        },
       }}
     >
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
@@ -27,7 +31,9 @@ export default function According({ title, children }: Props) {
           {title}
         </Typography>
       </AccordionSummary>
-      <AccordionDetails sx={{ padding: 0 }}>{children}</AccordionDetails>
+      <AccordionDetails sx={{ padding: 0, backgroundColor: "white" }}>
+        {children}
+      </AccordionDetails>
     </Accordion>
   );
 }

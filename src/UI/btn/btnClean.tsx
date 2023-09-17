@@ -12,7 +12,7 @@ type Props = {
 
 export default function BtbClean({ onClick, children }: Props) {
   return (
-    <Button onClick={onClick} variant="contained">
+    <Button sx={{ width: "100%" }} onClick={onClick} variant="contained">
       {children} <CleaningServicesIcon />
     </Button>
   );
