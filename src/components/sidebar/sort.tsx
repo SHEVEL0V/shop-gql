@@ -17,7 +17,11 @@ export default function Sort() {
   return (
     <Autocomplete
       className="my-2"
-      sx={{ border: "none" }}
+      sx={{
+        "& hover:": {
+          backgroundColor: "#black",
+        },
+      }}
       disablePortal
       options={filter}
       getOptionLabel={(option) => option.name || ""}

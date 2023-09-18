@@ -8,7 +8,7 @@ import UploadImg from "./uploadImg";
 import Autocomplete from "@/UI/autocomplete";
 import picture from "@/assets/img.png";
 import Text from "@/UI/text";
-import Container from "./formContainer";
+import Container from "../container/containerAdmin";
 
 import type { Product } from "@/types";
 import { LoadingButton } from "@mui/lab";

@@ -5,7 +5,7 @@ import { schemasGql } from "@/gql";
 import { toast } from "react-toastify";
 import OrderCard from "@/components/admin/orderCard";
 import ListContainer from "@/components/container/containerPagination";
-import FilterOrder from "@/components/admin/filterOrder";
+import FilterOrder from "@/components/admin/sidebarOrder";
 import useSearchParams from "@/hooks/useSearchParams";
 import { PrivateRoute } from "@/modules/router";
 

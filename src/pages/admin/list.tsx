@@ -7,7 +7,7 @@ import Sidebar from "@/modules/sidebar";
 import { PrivateRoute } from "@/modules/router";
 import useSearchParamsCustom from "@/hooks/useSearchParams";
 import { useCheckBox } from "@/hooks/useCheckBox";
-import ListContainer from "@/components/container/containerPagination";
+import Container from "@/components/container/containerPagination";
 import { useQuery, useMutation } from "@apollo/client";
 import { schemasGql } from "@/gql";
 
@@ -50,7 +50,7 @@ export default function List() {
           </LoadingButton>
         </div>
       </Sidebar>
-      <ListContainer isLoading={loading} count={count}>
+      <Container isLoading={loading} count={count}>
         {results?.map((data: any) => (
           <ProductCardAdmin
             data={data}
@@ -58,7 +58,7 @@ export default function List() {
             handleCheckBox={handleCheckBox}
           />
         ))}
-      </ListContainer>
+      </Container>
     </PrivateRoute>
   );
 }

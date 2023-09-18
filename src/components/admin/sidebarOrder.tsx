@@ -6,12 +6,11 @@ import Autocomplete from "@/UI/autocomplete";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import Typography from "@mui/material/Typography";
 import useSearchParams from "@/hooks/useSearchParams";
 import BtbClean from "@/UI/btn/btnClean";
 
-export default function FilterOrder() {
-  const [date, setDate] = useState<any>({});
+export default function SidebarOrder() {
+  const [date, setDate] = useState<any>(null);
   const [status, setStatus] = useState<string>("");
   const { setParams } = useSearchParams();
 
@@ -22,15 +21,17 @@ export default function FilterOrder() {
 
   return (
     <div className="p-2 flex flex-col border shadow  ">
-      <div className="flex mt-8 mb-4">
+      <div className="flex my-4">
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DatePicker
+            label="date"
             value={date}
             onChange={(newValue) => setDate(newValue)}
-            sx={{ marginRight: "10px" }}
           />
         </LocalizationProvider>
-        <BtbClean onClick={() => setDate([])} />
+        <div className="flex ml-2">
+          <BtbClean onClick={() => setDate(null)} />
+        </div>
       </div>
 
       <Autocomplete

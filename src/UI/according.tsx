@@ -1,6 +1,6 @@
 /** @format */
 
-import React from "react";
+import React, { useState } from "react";
 
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -15,12 +15,17 @@ type Props = {
 };
 
 export default function According({ title, children }: Props) {
+  const [color, setColor] = useState("white");
   return (
     <Accordion
+      onChange={(e, status) =>
+        status ? setColor("#f1f5f9") : setColor("#white")
+      }
       sx={{
         minHeight: "55px",
         borderRadius: 0,
         border: "none",
+        backgroundColor: color,
         "&:hover": {
           backgroundColor: "#f1f5f9",
         },
