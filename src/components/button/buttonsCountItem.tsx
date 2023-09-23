@@ -39,7 +39,7 @@ export default function ButtonCountItem({ id }: Props) {
       >
         -
       </Button>
-      <Text color="white">{qty}</Text>
+      <Text>{qty}</Text>
       <Button
         sx={{
           marginLeft: "auto",
