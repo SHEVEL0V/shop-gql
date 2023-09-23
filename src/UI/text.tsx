@@ -1,24 +1,15 @@
 /** @format */
-import Typography from "@mui/material/Typography";
 
 import React from "react";
 
 type Props = {
   children: React.ReactNode;
-  size?: number;
-  weight?: number;
-  color?: string;
 };
 
-export default function Text({
-  children,
-  size = 16,
-  weight = 400,
-  color = "text.secondary",
-}: Props) {
+export default function Text({ children }: Props) {
   return (
-    <Typography sx={{ fontSize: size, fontWeight: weight }} color={color}>
+    <div className="text-base text-slate-800 dark:text-slate-100 ">
       {children}
-    </Typography>
+    </div>
   );
 }

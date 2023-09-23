@@ -1,7 +1,6 @@
 /** @format */
 
 import React from "react";
-import Card from "@mui/material/Card";
 import Text from "@/UI/text";
 // import BtbDelete from "@/UI/btn/btnDelete";
 import getTime from "@/helpers/getTime";
@@ -37,14 +36,17 @@ export default function OrderCard({ data, updateOrder }: Props) {
     status === currentStatus;
 
   return (
-    <Card className="flex p-1 m-1 gap-x-2 border shadow ">
+    <div
+      className="flex p-1 m-1 gap-x-2 border rounded shadow
+     dark:bg-slate-600 dark:border-gray-700 "
+    >
       <div className={`p-1 border rounded ${bg}`}>
-        <Text>
+        <div>
           date:<b>{getTime(createdAt)}</b>
-        </Text>
-        <Text>{email}</Text>
-        <Text color="text.secondary">tel:{telephone}</Text>
-        <Text>status: {status}</Text>
+        </div>
+        <div>{email}</div>
+        <div>tel:{telephone}</div>
+        <div>status: {status}</div>
       </div>
       <div className="flex gap-1 flex-col">
         <Button
@@ -72,10 +74,11 @@ export default function OrderCard({ data, updateOrder }: Props) {
           rej
         </Button>
       </div>
-      <div className="flex gap-1 flex-col w-full p-1 border rounded">
+      <div className="flex gap-1 flex-col w-full p-1 border rounded dark:border-gray-700 ">
         {orders?.map((el: any, ind: number) => (
           <div
-            className="p-1 flex gap-x-2 border rounded bg-slate-100"
+            className="p-1 flex gap-x-2 border rounded bg-slate-100
+             dark:bg-slate-700 dark:border-gray-800"
             key={ind}
           >
             <div className="">
@@ -89,7 +92,7 @@ export default function OrderCard({ data, updateOrder }: Props) {
             </div>
           </div>
         ))}
-        <div className="mt-auto ml-auto p-1 rounded bg-green-300">
+        <div className="mt-auto ml-auto p-1 rounded bg-green-600">
           <Text>
             total price:<b>{totalPrice}</b>
           </Text>
@@ -102,6 +105,6 @@ export default function OrderCard({ data, updateOrder }: Props) {
           }}
         />
       </div> */}
-    </Card>
+    </div>
   );
 }

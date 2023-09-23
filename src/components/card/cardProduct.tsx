@@ -31,7 +31,8 @@ export default function CardProduct({ data }: Props) {
 
   return (
     <Card
-      className="p-2  hover:scale-105 border  hover:border-amber-500 dark:bg-slate-600"
+      className="p-2  hover:scale-105 border  hover:border-amber-500
+       dark:bg-slate-600 dark:border-gray-700 dark:hover:border-amber-500"
       sx={{
         transition: "all 350ms ease-in-out",
         display: "flex",

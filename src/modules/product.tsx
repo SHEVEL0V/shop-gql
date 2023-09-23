@@ -38,9 +38,7 @@ export default function Product({ data, id }: Props) {
         </Slider>
 
         <div>
-          <Text size={26} color="black">
-            {name}
-          </Text>
+          <Text>{name}</Text>
 
           <div className="mt-10 text-green-600 text-3xl font-bold">
             &#8372;{price}

@@ -41,7 +41,7 @@ export default function Basket() {
       <ModalCustom open={isOpen} onClick={handleClick}>
         <div className="overflow-auto  pb-2 rounded mb-2 flex flex-col gap-y-2">
           {isClose ? (
-            <Text>No products found.</Text>
+            <div className="dark:text-slate-50">No products found.</div>
           ) : (
             basket.map((list) => <CardBasket key={list._id} data={list} />)
           )}
@@ -55,8 +55,8 @@ export default function Basket() {
           onClick={handleOrder}
         >
           Checkout
-          <div className=" p-2 bg-slate-50 ml-auto rounded-3xl">
-            <Text> &#8372; {sumPrice}</Text>
+          <div className=" p-2 bg-slate-50 ml-auto rounded-3xl dark:bg-slate-600 ">
+            <Text>&#8372; {sumPrice}</Text>
           </div>
         </Button>
       </ModalCustom>

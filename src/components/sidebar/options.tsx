@@ -14,7 +14,7 @@ export default function Options({ options = [] }: Props) {
   const { cleanParams } = useSearchParamsCustom();
 
   return (
-    <According title="Options">
+    <According title="options:">
       {options?.map(({ name, value }, ind) => (
         <OptionsCard key={ind} title={name} value={value} />
       ))}

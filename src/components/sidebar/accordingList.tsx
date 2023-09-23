@@ -27,7 +27,7 @@ export default function AccordingList({ title, value }: Props) {
       {value.map((el) => (
         <div
           key={el}
-          className="flex items-center mb-1 border-x bg-slate-100
+          className="flex items-center mb-1  bg-slate-100
            dark:bg-slate-500 dark:border-gray-800"
         >
           <Checkbox

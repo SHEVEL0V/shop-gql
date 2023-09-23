@@ -29,8 +29,11 @@ export default function CardBasket({ data }: Props) {
   const handleDeleteProduct = () => dispatch(removeBasketEl({ id }));
 
   return (
-    <div className="bg-slate-100 rounded shadow  p-2 flex">
-      <div className="flex flex-col justify-between mr-1 items-center rounded-2xl bg-slate-200 border">
+    <div className="bg-slate-100 dark:bg-slate-600 rounded shadow  p-2 flex">
+      <div
+        className="flex flex-col justify-between mr-1 items-center rounded-2xl bg-slate-200
+       dark:bg-slate-500 border dark:border-gray-700"
+      >
         <button className="w-7" onClick={handleCountIncrement}>
           <Text>+</Text>
         </button>
@@ -47,7 +50,7 @@ export default function CardBasket({ data }: Props) {
         height={100}
       />
       <div className={"flex-row pl-2 "}>
-        <h2 className={"text-base h-10 mb-1 "}>{name}</h2>
+        <Text>{name}</Text>
 
         <div className="flex">
           <span className="text-base text-green-600  mr-4">&#8372;{price}</span>

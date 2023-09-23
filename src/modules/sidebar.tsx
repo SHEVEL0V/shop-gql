@@ -1,6 +1,5 @@
 /** @format */
 import { useQuery } from "@apollo/client";
-import Paper from "@mui/material/Paper";
 import Slide from "@mui/material/Slide";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { setDesc } from "@/redux/options/slice";
@@ -35,7 +34,7 @@ export default function Sidebar({ children }: Props) {
             <Options options={options.params} />
             <div className="">{children}</div>
           </div>
-          <div className="mt-auto p-2 border rounded justify-end">
+          <div className="mt-auto p-2 border rounded justify-end dark:border-gray-700">
             <ButtonTheme />
           </div>
         </div>

@@ -2,7 +2,6 @@
 
 import React from "react";
 
-import Card from "@mui/material/Card";
 import { useRouter } from "next/router";
 import Checkbox from "@mui/material/Checkbox";
 import Text from "@/UI/text";
@@ -21,7 +20,10 @@ export default function ProductCardAdmin({ data, handleCheckBox }: Props) {
     router.push({ pathname: `/admin/update/${data._id}` });
 
   return (
-    <Card className="flex p-1 m-1 border rounded shadow-md">
+    <div
+      className="flex p-1 m-1 border rounded shadow-md
+     dark:bg-slate-700 dark:border-gray-800"
+    >
       <div onClick={handleNavigate} className="flex items-center">
         <div>
           <Image
@@ -46,6 +48,6 @@ export default function ProductCardAdmin({ data, handleCheckBox }: Props) {
       </div>
 
       <Checkbox value={data._id} onChange={handleCheckBox} />
-    </Card>
+    </div>
   );
 }

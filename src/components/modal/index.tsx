@@ -20,7 +20,7 @@ export default function ModalCustom({
       }}
       closeAfterTransition={true}
     >
-      <div className="max-w-[600px] max-h-[70vh] p-5 mx-auto flex flex-col rounded bg-slate-200 ">
+      <div className="max-w-[600px] max-h-[70vh] p-5 mx-auto flex flex-col rounded bg-slate-200 dark:bg-slate-500 ">
         {children}
       </div>
     </Modal>
