@@ -14,19 +14,19 @@ type Props = {
 export default function According({ title, children }: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const rotate = isOpen ? "rotate-180" : "";
-
-  const bg = isOpen ? "bg-red-50" : "";
+  const rotate = isOpen ? "rotate(180deg)" : "rotate(0deg)";
 
   return (
     <div>
       <div
-        className={`flex p-3 transition-colors duration-500 shadow 
-         ${bg} `}
+        className={`flex p-3 transition-colors duration-500 shadow cursor-pointer  `}
         onClick={() => setIsOpen(!isOpen)}
       >
         <Text>{title}</Text>
-        <div className={`ml-auto transition-transform duration-500 ${rotate}`}>
+        <div
+          className={`ml-auto transition-transform duration-500`}
+          style={{ transform: rotate }}
+        >
           <KeyboardArrowDownIcon />
         </div>
       </div>

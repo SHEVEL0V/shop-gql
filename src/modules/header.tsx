@@ -13,6 +13,7 @@ import AvatarIcon from "@/components/header/avatarIcon";
 import BtnBack from "@/UI/btn/btnBack";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Logo from "@/UI/logo";
+import ButtonTheme from "@/components/button/buttonTheme";
 
 export default function Header() {
   const isAuth = useAppSelector((s) => s.auth.token);
@@ -20,12 +21,13 @@ export default function Header() {
 
   const dispatch = useAppDispatch();
   const screen768 = useMediaQuery("(min-width:768px)");
-  const screen480 = useMediaQuery("(min-width:480px)");
+  const screen640 = useMediaQuery("(min-width:640px)");
   const router = useRouter();
   const path = router.pathname;
 
   const visibilityAdmin = path.includes("admin");
-  const visibilityMenu = path.includes("remove") || path === "/";
+  const visibilityMenu =
+    path.includes("remove") || path.includes("list") || path === "/";
   const visibilityStartPage = path === "/";
 
   const navigate = (value: string) => router.push(value);
@@ -36,14 +38,15 @@ export default function Header() {
     <AppBar position="sticky">
       <Toolbar className="dark:bg-slate-700">
         {visibilityMenu && !screen768 && <MenuButton />}
-        {!visibilityStartPage && <BtnBack onClick={() => navigate("/")} />}
-        {screen480 && <Logo />}
+        {!visibilityStartPage && !visibilityMenu && (
+          <BtnBack onClick={() => navigate("/")} />
+        )}
+        {screen640 && <Logo onClick={() => navigate("/")} />}
         <div className="ml-auto"></div>
         {visibilityStartPage && <SearchInput />}
         {visibilityAdmin && (
           <div className="flex ">
             <Button
-              sx={{ minWidth: "90px" }}
               variant="contained"
               color={handleColorButton("add")}
               onClick={() => navigate("/admin/add")}
@@ -51,7 +54,7 @@ export default function Header() {
               add
             </Button>
             <Button
-              sx={{ marginInline: "5px", minWidth: "90px" }}
+              sx={{ marginInline: "5px" }}
               variant="contained"
               color={handleColorButton("list")}
               onClick={() => navigate("/admin/list")}
@@ -59,12 +62,12 @@ export default function Header() {
               list
             </Button>
             <Button
-              sx={{ marginRight: "5px", minWidth: "90px" }}
+              sx={{ marginRight: "5px" }}
               variant="contained"
               color={handleColorButton("orders")}
               onClick={() => navigate("/admin/orders")}
             >
-              orders
+              ord
             </Button>
           </div>
         )}
@@ -73,12 +76,12 @@ export default function Header() {
           <Button
             onClick={() => navigate("/admin/add")}
             variant="contained"
-            color="secondary"
+            color="success"
           >
-            Admin panel
+            admin
           </Button>
         )}
-
+        <ButtonTheme />
         {isAuth ? (
           <AvatarIcon />
         ) : (

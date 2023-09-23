@@ -29,7 +29,7 @@ export default function AvatarIcon() {
     router.push("/");
   };
   return (
-    <Box sx={{ flexGrow: 0, marginLeft: "10px" }}>
+    <Box sx={{ flexGrow: 0 }}>
       <Tooltip title="Open settings">
         <IconButton
           onClick={(e) => setAnchorElUser(e.currentTarget)}

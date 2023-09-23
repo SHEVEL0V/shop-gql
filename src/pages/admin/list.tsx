@@ -10,8 +10,10 @@ import { useCheckBox } from "@/hooks/useCheckBox";
 import Container from "@/components/container/containerPagination";
 import { useQuery, useMutation } from "@apollo/client";
 import { schemasGql } from "@/gql";
+import { useAppSelector } from "@/redux/hooks";
 
 export default function List() {
+  const isOpenMenu = useAppSelector((state) => state.button.menu);
   const { params: query } = useSearchParamsCustom();
   const [options, setOptions] = useState<string[]>([]);
   const disabled = options.length === 0;
@@ -51,13 +53,14 @@ export default function List() {
         </div>
       </Sidebar>
       <Container isLoading={loading} count={count}>
-        {results?.map((data: any) => (
-          <ProductCardAdmin
-            data={data}
-            key={data._id}
-            handleCheckBox={handleCheckBox}
-          />
-        ))}
+        {!isOpenMenu &&
+          results?.map((data: any) => (
+            <ProductCardAdmin
+              data={data}
+              key={data._id}
+              handleCheckBox={handleCheckBox}
+            />
+          ))}
       </Container>
     </PrivateRoute>
   );

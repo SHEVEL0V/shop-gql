@@ -5,7 +5,6 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { setDesc } from "@/redux/options/slice";
 import SliderPrice from "@/components/sidebar/sliderPrice";
 import AccordingList from "@/components/sidebar/accordingList";
-import ButtonTheme from "@/components/button/buttonTheme";
 import Sort from "@/components/sidebar/sort";
 import Options from "@/components/sidebar/options";
 import { GET_DESCRIPTORS } from "@/gql/schemas/products";
@@ -32,10 +31,7 @@ export default function Sidebar({ children }: Props) {
             <AccordingList title="type" value={options.types} />
             <AccordingList title="brand" value={options.brands} />
             <Options options={options.params} />
-            <div className="">{children}</div>
-          </div>
-          <div className="mt-auto p-2 border rounded justify-end dark:border-gray-700">
-            <ButtonTheme />
+            <div>{children}</div>
           </div>
         </div>
       }

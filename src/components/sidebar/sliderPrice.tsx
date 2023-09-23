@@ -26,7 +26,10 @@ export default function PriceSlider({ price = [0, 0] }: Props) {
   const handleSearch = () => setParams({ [title]: value });
 
   return (
-    <div className="p-3 border rounded mb-2 hover:bg-slate-100 dark:hover:bg-slate-500 dark:border-gray-700">
+    <div
+      className="p-3 border rounded mb-2 transition-colors 
+     hover:bg-slate-100 dark:hover:bg-slate-500 dark:border-gray-700"
+    >
       <div className="flex">
         <input
           className="flex h-10 w-14 mr-2 border rounded p-1 text-sm

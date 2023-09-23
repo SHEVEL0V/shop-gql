@@ -37,7 +37,7 @@ export default function OrderCard({ data, updateOrder }: Props) {
 
   return (
     <div
-      className="flex p-1 m-1 gap-x-2 border rounded shadow
+      className=" sm:flex p-1 m-1 gap-x-2 border rounded shadow
      dark:bg-slate-600 dark:border-gray-700 "
     >
       <div className={`p-1 border rounded ${bg}`}>

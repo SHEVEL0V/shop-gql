@@ -20,14 +20,14 @@ export default function ButtonTheme() {
 
   return (
     <Fab
-      sx={{ backgroundColor: theme ? "grey" : "while" }}
+      sx={{ backgroundColor: theme ? "grey" : "while", marginX: "10px" }}
       color={theme ? "inherit" : "default"}
       size="small"
       onClick={() => {
         dispatcher(setButtonTheme());
       }}
     >
-      {theme ? <DarkModeIcon /> : <LightModeIcon />}
+      {theme ? <DarkModeIcon sx={{ fill: "black" }} /> : <LightModeIcon />}
     </Fab>
   );
 }

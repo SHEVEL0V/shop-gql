@@ -10,10 +10,12 @@ type Props = {
 export default function BtnBack({ onClick }: Props) {
   return (
     <Button
+      sx={{ padding: 0 }}
       color="inherit"
       variant="text"
-      startIcon={<ArrowBackIosIcon />}
       onClick={onClick}
-    />
+    >
+      <ArrowBackIosIcon />
+    </Button>
   );
 }
