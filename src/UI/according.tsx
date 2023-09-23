@@ -19,7 +19,7 @@ export default function According({ title, children }: Props) {
   return (
     <div>
       <div
-        className={`flex p-3 transition-colors duration-500 shadow cursor-pointer  `}
+        className="flex p-3 transition-colors duration-500 shadow cursor-pointer"
         onClick={() => setIsOpen(!isOpen)}
       >
         <Text>{title}</Text>

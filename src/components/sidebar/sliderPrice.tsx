@@ -28,7 +28,7 @@ export default function PriceSlider({ price = [0, 0] }: Props) {
   return (
     <div
       className="p-3 border rounded mb-2 transition-colors 
-     hover:bg-slate-100 dark:hover:bg-slate-500 dark:border-gray-700"
+      dark:border-gray-700"
     >
       <div className="flex">
         <input
