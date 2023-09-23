@@ -2,43 +2,37 @@
 
 import React, { useState } from "react";
 
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Typography from "@mui/material/Typography";
+import Collapse from "@mui/material/Collapse";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 type Props = {
-  children: React.ReactNode;
-  border?: boolean;
+  children: React.ReactNode | React.ReactNode[];
   title: string;
 };
 
 export default function According({ title, children }: Props) {
-  const [color, setColor] = useState("white");
+  const [isOpen, setIsOpen] = useState(false);
+
+  const rotate = isOpen ? "rotate-180" : "";
+
+  const bg = isOpen ? "bg-slate-300" : "";
+
   return (
-    <Accordion
-      onChange={(e, status) =>
-        status ? setColor("#f1f5f9") : setColor("#white")
-      }
-      sx={{
-        minHeight: "55px",
-        borderRadius: 0,
-        border: "none",
-        backgroundColor: color,
-        "&:hover": {
-          backgroundColor: "#f1f5f9",
-        },
-      }}
-    >
-      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-        <Typography fontWeight={500} color="text.secondary">
-          {title}
-        </Typography>
-      </AccordionSummary>
-      <AccordionDetails sx={{ padding: 0, backgroundColor: "white" }}>
-        {children}
-      </AccordionDetails>
-    </Accordion>
+    <div className="border-t">
+      <div
+        className={`flex p-3 mb-1 transition-colors duration-500 ${bg}`}
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <div>{title}</div>
+        <div className={` ml-auto transition-transform ${rotate} `}>
+          <KeyboardArrowDownIcon />
+        </div>
+      </div>
+      <div>
+        <Collapse in={isOpen} timeout={500}>
+          {children}
+        </Collapse>
+      </div>
+    </div>
   );
 }

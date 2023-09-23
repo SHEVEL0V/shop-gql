@@ -20,7 +20,7 @@ export default function SidebarOrder() {
   const handleFilter = () => setParams({ status, ...dataParams() });
 
   return (
-    <div className="p-2 flex flex-col border shadow  ">
+    <div className="p-2 flex flex-col border-r shadow dark:border-gray-700 dark:bg-slate-600  ">
       <div className="flex my-4">
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DatePicker

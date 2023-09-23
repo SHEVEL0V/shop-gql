@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { setDesc } from "@/redux/options/slice";
 import SliderPrice from "@/components/sidebar/sliderPrice";
 import AccordingList from "@/components/sidebar/accordingList";
-import According from "@/UI/according";
+import ButtonTheme from "@/components/button/buttonTheme";
 import Sort from "@/components/sidebar/sort";
 import Options from "@/components/sidebar/options";
 import { GET_DESCRIPTORS } from "@/gql/schemas/products";
@@ -26,16 +26,19 @@ export default function Sidebar({ children }: Props) {
   return (
     <Slide direction="right" in={isOpen} mountOnEnter unmountOnExit>
       {
-        <Paper className="p-3">
+        <div className="flex flex-col p-3 shadow-lg bg-slate-50 dark:bg-slate-600">
           <Sort />
           <SliderPrice price={options.price} />
-          <div className="border-2 rounded">
-            <AccordingList title="type" data={options.types} />
-            <AccordingList title="brand" data={options.brands} />
+          <div className="border rounded overflow-hidden dark:border-gray-700">
+            <AccordingList title="type" value={options.types} />
+            <AccordingList title="brand" value={options.brands} />
             <Options options={options.params} />
             <div className="">{children}</div>
           </div>
-        </Paper>
+          <div className="mt-auto p-2 border rounded justify-end">
+            <ButtonTheme />
+          </div>
+        </div>
       }
     </Slide>
   );

@@ -1,14 +1,9 @@
 /** @format */
 
-import React from "react";
+import React, { useState } from "react";
 import BtbClean from "@/UI/btn/btnClean";
 import useSearchParamsCustom from "@/hooks/useSearchParams";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Typography from "@mui/material/Typography";
-import OptionsCard from "./optionsCard";
+import OptionsCard from "./accordingList";
 import According from "@/UI/according";
 
 type Props = {
@@ -17,8 +12,9 @@ type Props = {
 
 export default function Options({ options = [] }: Props) {
   const { cleanParams } = useSearchParamsCustom();
+
   return (
-    <According title="options:">
+    <According title="Options">
       {options?.map(({ name, value }, ind) => (
         <OptionsCard key={ind} title={name} value={value} />
       ))}

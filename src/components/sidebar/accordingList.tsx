@@ -1,20 +1,22 @@
 /** @format */
 
-import React, { useState } from "react";
-import Checkbox from "@mui/material/Checkbox";
-import According from "@/UI/according";
+import React from "react";
 import useSearchParamsCustom from "@/hooks/useSearchParams";
+import According from "@/UI/according";
+import Checkbox from "@mui/material/Checkbox";
 
-type Props = { data: string[]; title: string };
+type Props = {
+  title: string;
+  value: string[];
+};
 
-export default function AccordingList({ data = [], title }: Props) {
+export default function AccordingList({ title, value }: Props) {
   const { setParams, getParamByKey } = useSearchParamsCustom();
-
   const param = getParamByKey(title);
 
   const handleCheckBox = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const param = getParamByKey(title);
     const { checked, value } = e.target;
+
     checked
       ? setParams({ page: 1, [title]: [...param, value] })
       : setParams({ page: 1, [title]: param.filter((el) => value !== el) });
@@ -22,15 +24,19 @@ export default function AccordingList({ data = [], title }: Props) {
 
   return (
     <According title={title}>
-      {data.map((value, ind) => (
-        <div key={ind} className="flex items-center   border-t">
+      {value.map((el) => (
+        <div
+          key={el}
+          className="flex items-center mb-1 border-x bg-slate-100
+           dark:bg-slate-500 dark:border-gray-800"
+        >
           <Checkbox
             name={title}
-            value={value}
+            value={el}
+            checked={param.includes(el)}
             onChange={handleCheckBox}
-            checked={param.includes(value)}
           />
-          <span className="ml-2 mr-auto">{value}</span>
+          <span className="ml-2 mr-auto text-sm">{el}</span>
         </div>
       ))}
     </According>

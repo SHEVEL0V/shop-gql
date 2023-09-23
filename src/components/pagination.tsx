@@ -5,7 +5,6 @@ import P from "@mui/material/Pagination";
 import Autocomplete from "../UI/autocomplete";
 import useSearchParamsCustom from "../hooks/useSearchParams";
 import { useRouter } from "next/router";
-import s from "./style.module.css";
 
 type Props = {
   count: number;

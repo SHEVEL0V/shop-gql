@@ -34,7 +34,7 @@ export default function Header() {
 
   return (
     <AppBar position="sticky">
-      <Toolbar sx={{ padding: "5px", display: "flex" }}>
+      <Toolbar className="dark:bg-slate-700">
         {visibilityMenu && !screen768 && <MenuButton />}
         {!visibilityStartPage && <BtnBack onClick={() => navigate("/")} />}
         {screen480 && <Logo />}
@@ -68,6 +68,7 @@ export default function Header() {
             </Button>
           </div>
         )}
+
         {isAuthAdmin && !visibilityAdmin && (
           <Button
             onClick={() => navigate("/admin/add")}
@@ -77,6 +78,7 @@ export default function Header() {
             Admin panel
           </Button>
         )}
+
         {isAuth ? (
           <AvatarIcon />
         ) : (

@@ -37,7 +37,7 @@ export default function OrderCard({ data, updateOrder }: Props) {
     status === currentStatus;
 
   return (
-    <Card className="flex p-1 m-1 gap-x-2 border shadow">
+    <Card className="flex p-1 m-1 gap-x-2 border shadow ">
       <div className={`p-1 border rounded ${bg}`}>
         <Text>
           date:<b>{getTime(createdAt)}</b>

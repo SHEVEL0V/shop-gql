@@ -1,7 +1,6 @@
 /** @format */
 
 import React, { useState } from "react";
-import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import ButtonSearch from "../../UI/btn/btnSearch";
 import useSearchParamsCustom from "../../hooks/useSearchParams";
@@ -27,16 +26,18 @@ export default function PriceSlider({ price = [0, 0] }: Props) {
   const handleSearch = () => setParams({ [title]: value });
 
   return (
-    <div className="p-3 border-2 rounded mb-2 hover:bg-slate-100">
+    <div className="p-3 border rounded mb-2 hover:bg-slate-100 dark:hover:bg-slate-500 dark:border-gray-700">
       <div className="flex">
         <input
-          className="flex h-10 w-14 mr-2 border rounded p-1 text-sm "
+          className="flex h-10 w-14 mr-2 border rounded p-1 text-sm
+           dark:bg-slate-700 dark:text-slate-100 dark:border-gray-800"
           type="text"
           value={value[0]}
           onChange={handleInputMin}
         />
         <input
-          className="flex h-10 w-14 mr-2 border rounded p-1 text-sm"
+          className="flex h-10 w-14 mr-2 border rounded p-1 text-sm
+          dark:bg-slate-700 dark:text-slate-100 dark:border-gray-800"
           type="text"
           value={value[1]}
           onChange={handleInputMax}
