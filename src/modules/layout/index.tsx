@@ -1,10 +1,10 @@
 /** @format */
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 import Footer from "@/components/footer";
 import Header from "../header";
 import Basket from "../basket";
 import Auth from "../auth";
-
+import { useRouter } from "next/router";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -13,7 +13,10 @@ type Props = {
 };
 
 export function Layout({ children }: Props) {
-  const [theme, setTheme] = useState("light");
+  const router = useRouter();
+
+  const visibilityBasket =
+    router.pathname.includes("user") || router.pathname.includes("admin");
 
   return (
     <>
@@ -22,7 +25,7 @@ export function Layout({ children }: Props) {
         {children}
       </div>
       <Footer />
-      <Basket />
+      {!visibilityBasket && <Basket />}
       <Auth />
       <ToastContainer />
     </>

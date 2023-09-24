@@ -20,7 +20,11 @@ export default function ButtonTheme() {
 
   return (
     <Fab
-      sx={{ backgroundColor: theme ? "grey" : "while", marginX: "10px" }}
+      sx={{
+        backgroundColor: theme ? "grey" : "while",
+        marginX: "10px",
+        minWidth: "40px",
+      }}
       color={theme ? "inherit" : "default"}
       size="small"
       onClick={() => {

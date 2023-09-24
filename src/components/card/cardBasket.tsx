@@ -29,32 +29,36 @@ export default function CardBasket({ data }: Props) {
   const handleDeleteProduct = () => dispatch(removeBasketEl({ id }));
 
   return (
-    <div className="bg-slate-100 dark:bg-slate-600 rounded shadow  p-2 flex">
-      <div
-        className="flex flex-col justify-between mr-1 items-center rounded-2xl bg-slate-200
+    <div className="bg-slate-100 dark:bg-slate-600 rounded shadow  p-2 flex flex-wrap">
+      <div className="flex">
+        <div
+          className="flex flex-col justify-between mr-1 items-center rounded-2xl bg-slate-200
        dark:bg-slate-500 border dark:border-gray-700"
-      >
-        <button className="w-7" onClick={handleCountIncrement}>
-          <Text>+</Text>
-        </button>
-        <Text>{qty}</Text>
-        <button className="w-7" onClick={handleCountDecrement}>
-          <Text>-</Text>
-        </button>
-      </div>
-      <Image
-        className="max-w-32 h-20 object-contain"
-        src={images[0]}
-        alt={name}
-        width={100}
-        height={100}
-      />
-      <div className={"flex-row pl-2 "}>
-        <Text>{name}</Text>
+        >
+          <button className="w-7" onClick={handleCountIncrement}>
+            <Text>+</Text>
+          </button>
+          <Text>{qty}</Text>
+          <button className="w-7" onClick={handleCountDecrement}>
+            <Text>-</Text>
+          </button>
+        </div>
+        <Image
+          className="max-w-32 h-20 object-contain"
+          src={images[0]}
+          alt={name}
+          width={100}
+          height={100}
+        />
+        <div className={"flex flex-col pl-2 "}>
+          <Text>{name}</Text>
 
-        <div className="flex">
-          <span className="text-base text-green-600  mr-4">&#8372;{price}</span>
-          <Text>1 * {qty} pc(s)</Text>
+          <div className="flex mt-auto mb-2">
+            <span className="text-base text-green-600  mr-4">
+              &#8372;{price}
+            </span>
+            <Text>1 * {qty} pc(s)</Text>
+          </div>
         </div>
       </div>
       <div className="flex items-center ml-auto">

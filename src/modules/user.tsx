@@ -37,7 +37,7 @@ export default function UpdateUser({ data, updateUser }: Props) {
 
   return (
     <div className="p-4">
-      <div className="flex w-full">
+      <div className=" w-full sm:flex">
         <UploadImg setFiles={setFile} images={urlImg} setImages={setUrlImg} />
         <div className="w-full p-2">
           <FormMain data={form} form={FORM} setForm={setForm} required={true} />
@@ -56,7 +56,7 @@ export default function UpdateUser({ data, updateUser }: Props) {
             onChange={(e) => setPasswordAgain(e.target.value)}
             error={!errorPassword}
           />
-          <div className="p-2 flex border-2 rounded">
+          <div className="p-2 flex border rounded dark:border-gray-600">
             <Text>Update user profile</Text>
 
             <LoadingButton
