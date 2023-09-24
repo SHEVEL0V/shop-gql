@@ -21,7 +21,7 @@ export default function ProductCardAdmin({ data, handleCheckBox }: Props) {
 
   return (
     <div
-      className="flex p-1 m-1 border rounded shadow-md
+      className="sm:flex p-1 m-1 border rounded shadow-md
      dark:bg-slate-700 dark:border-gray-800"
     >
       <div onClick={handleNavigate} className="flex items-center">

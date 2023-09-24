@@ -53,14 +53,13 @@ export default function List() {
         </div>
       </Sidebar>
       <Container isLoading={loading} count={count}>
-        {!isOpenMenu &&
-          results?.map((data: any) => (
-            <ProductCardAdmin
-              data={data}
-              key={data._id}
-              handleCheckBox={handleCheckBox}
-            />
-          ))}
+        {results?.map((data: any) => (
+          <ProductCardAdmin
+            data={data}
+            key={data._id}
+            handleCheckBox={handleCheckBox}
+          />
+        ))}
       </Container>
     </PrivateRoute>
   );
