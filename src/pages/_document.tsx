@@ -6,7 +6,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head></Head>
-      <body>
+      <body className="font-sans">
         <Main />
         <NextScript />
       </body>
