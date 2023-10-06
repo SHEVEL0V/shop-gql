@@ -3,12 +3,13 @@
 import React from "react";
 
 type Props = {
-  children: React.ReactNode;
+  children: string;
+  size?: "xs" | "sm" | "base" | "lg" | "xl" | "2xl";
 };
 
-export default function Text({ children }: Props) {
+export default function Text({ children, size = "base" }: Props) {
   return (
-    <div className="text-base text-slate-800 dark:text-slate-100 ">
+    <div className={`text-${size}  text-slate-800 dark:text-slate-100 `}>
       {children}
     </div>
   );

@@ -7,10 +7,12 @@ import Button from "@mui/material/Button";
 import ButtonCount from "@/components/button/buttonsCountItem";
 import Text from "@/UI/text";
 import RatingItem from "@/components/rating";
-import SettingsIcon from "@mui/icons-material/Settings";
+
 import Slider from "@/components/slider";
 
 import type { Product } from "@/types";
+import SimilarProduct from "@/components/product/similarProduct";
+import Params from "@/components/product/params";
 
 type Props = { data: Product; id: string };
 
@@ -18,32 +20,28 @@ export default function Product({ data, id }: Props) {
   const dispatch = useDispatch();
   const { isDisable } = useItemByBasket(id);
 
-  const { images, price, name, desc, params, rating } = data;
+  const { images, price, name, desc, params, rating, type } = data;
 
   const handleAddProducts = () => dispatch(setBasket(data));
 
   return (
-    <div className="flex-row  w-[1200px] mx-auto p-4 ">
+    <div className="flex-row  max-w-[1200px] mx-auto p-4 ">
       <div className=" mb-8 md:flex">
         <Slider>
           {images.map((img, i) => (
-            <Image
-              key={i}
-              width={500}
-              height={400}
-              src={img}
-              alt="product image"
-            />
+            <Image key={i} width={500} height={400} src={img} alt={name} />
           ))}
         </Slider>
 
         <div>
-          <Text>{name}</Text>
-
-          <div className="mt-10 text-green-600 text-3xl font-bold">
-            &#8372;{price}
+          <div className="mb-6">
+            <Text size="xl">{name}</Text>
           </div>
           <RatingItem id={id} rating={rating} />
+          <div className=" text-green-600 text-3xl font-bold">
+            &#8372;{price}
+          </div>
+
           <h5>Descriptions:</h5>
           <Text>{desc}</Text>
 
@@ -63,20 +61,8 @@ export default function Product({ data, id }: Props) {
           </div>
         </div>
       </div>
-      <div className="h-36 max-w-[700px]  bg-slate-100 border-2 rounded border-slate-300 ">
-        <div className="flex items-center h-10 bg-slate-300">
-          <SettingsIcon sx={{ marginInline: "10px" }} />
-          Options:
-        </div>
-        {params?.map((e, i) => (
-          <div key={i} className=" odd:bg-slate-300 text-gray-700">
-            <div className="flex h-8 items-center px-2 ">
-              <div className=""> {e.name}</div>
-              <div className="ml-auto">{e.value}</div>
-            </div>
-          </div>
-        ))}
-      </div>
+      <Params params={params} />
+      <SimilarProduct type={type} />
     </div>
   );
 }

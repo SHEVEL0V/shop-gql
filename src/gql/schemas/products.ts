@@ -55,6 +55,18 @@ export const GET_PRODUCTS_BY_ID = gql`
   }
 `;
 
+export const GET_PRODUCTS_BY_TYPE_SIMILAR = gql`
+  query Query($type: String) {
+    getProductByType(type: $type) {
+      _id
+      brand
+      images
+      name
+      price
+    }
+  }
+`;
+
 export const ADD_PRODUCT = gql`
   mutation AddProduct($add: InpProduct) {
     addProduct(add: $add) ${res}
