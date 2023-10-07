@@ -20,7 +20,7 @@ type Props = {
 };
 
 export default function CardProduct({ data }: Props) {
-  const { _id, name, price, rating, images, brand } = data;
+  const { _id = "", name, price, rating, images, brand } = data;
 
   const dispatch = useAppDispatch();
   const router = useRouter();
