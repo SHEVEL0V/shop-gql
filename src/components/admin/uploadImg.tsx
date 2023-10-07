@@ -6,7 +6,7 @@ import { StaticImageData } from "next/image";
 
 type Props = {
   setFiles: React.Dispatch<React.SetStateAction<any>>;
-  images: StaticImageData[] | [string];
+  images: StaticImageData[] | string[];
   setImages: React.Dispatch<React.SetStateAction<any>>;
 };
 
