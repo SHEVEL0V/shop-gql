@@ -56,7 +56,7 @@ export default function Basket() {
         >
           Checkout
           <div className=" p-2 bg-slate-50 ml-auto rounded-3xl dark:bg-slate-600 ">
-            <Text>&#8372; {sumPrice}</Text>
+            <Text>&#8372; {String(sumPrice)}</Text>
           </div>
         </Button>
       </ModalCustom>
