@@ -39,13 +39,13 @@ export default function Header() {
       <Toolbar className="dark:bg-slate-700">
         {visibilityMenu && !screen768 && <MenuButton />}
         {!visibilityStartPage && !visibilityMenu && (
-          <BtnBack onClick={() => navigate("/")} />
+          <BtnBack onClick={() => router.back()} />
         )}
         {screen640 && <Logo onClick={() => navigate("/")} />}
         <div className="ml-auto"></div>
         {visibilityStartPage && <SearchInput />}
         {visibilityAdmin && (
-          <div className="flex ">
+          <div className="flex">
             <Button
               variant="contained"
               color={handleColorButton("add")}
