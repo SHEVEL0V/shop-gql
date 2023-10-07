@@ -43,10 +43,11 @@ export default function FormAddItem({ loading = false, mutation }: Props) {
   const handleSetForm = (value: {}) =>
     setForm((state: any) => ({ ...state, ...value }));
 
-  const disabled = () => {
-    const arr = Object.values(form);
-    return arr.length >= 4 && !arr.includes("") && !arr.includes(0);
-  };
+  const disabled =
+    form.name !== "" &&
+    form.brand !== "" &&
+    form.type !== "" &&
+    form.price !== 0;
 
   return (
     <Container>
@@ -75,7 +76,7 @@ export default function FormAddItem({ loading = false, mutation }: Props) {
           <LoadingButton
             loading={loading}
             onClick={handlerFetch}
-            disabled={!disabled()}
+            disabled={!disabled}
             variant="contained"
             color="secondary"
             sx={{ marginLeft: "auto" }}
