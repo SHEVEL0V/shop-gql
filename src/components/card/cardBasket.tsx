@@ -22,7 +22,7 @@ export default function CardBasket({ data }: Props) {
 
   const { _id: id, name, price, images, qty } = data;
 
-  const finalPrice = qty * price;
+  const finalPrice = String(qty * price);
 
   const handleCountDecrement = () => dispatch(decrementsQty({ id }));
   const handleCountIncrement = () => dispatch(incrementsQty({ id }));
@@ -57,7 +57,7 @@ export default function CardBasket({ data }: Props) {
             <span className="text-base text-green-600  mr-4">
               &#8372;{price}
             </span>
-            <Text>1 * {qty} pc(s)</Text>
+            <Text>1 * {String(qty)} pc(s)</Text>
           </div>
         </div>
       </div>
