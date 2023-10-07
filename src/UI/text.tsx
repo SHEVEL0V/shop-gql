@@ -3,7 +3,7 @@
 import React from "react";
 
 type Props = {
-  children: string;
+  children: string | string[];
   size?: "xs" | "sm" | "base" | "lg" | "xl" | "2xl";
 };
 

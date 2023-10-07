@@ -36,15 +36,11 @@ export default function ProductCardAdmin({ data, handleCheckBox }: Props) {
         </div>
         <Text>brand: {data?.brand}</Text>
         <div className=" ml-4">
-          <Text>
-            name: <b>{data.name}</b>
-          </Text>
+          <Text>name: {data.name}</Text>
         </div>
       </div>
       <div className="flex items-center ml-auto">
-        <Text>
-          price: <b>{data.price}</b>
-        </Text>
+        <Text>price:{String(data.price)}</Text>
       </div>
 
       <Checkbox value={data._id} onChange={handleCheckBox} />

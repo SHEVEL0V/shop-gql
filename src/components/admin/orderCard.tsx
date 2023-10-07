@@ -12,7 +12,7 @@ type Props = {
   data: {
     user: User;
     status: string;
-    orders: [];
+    orders: { brand: string; name: string; price: string; qty: string }[];
     createdAt: string;
     _id: string;
   };
@@ -75,7 +75,7 @@ export default function OrderCard({ data, updateOrder }: Props) {
         </Button>
       </div>
       <div className="flex gap-1 flex-col w-full p-1 border rounded dark:border-gray-700 ">
-        {orders?.map((el: any, ind: number) => (
+        {orders?.map((el, ind: number) => (
           <div
             className="p-1 flex gap-x-2 border rounded bg-slate-100
              dark:bg-slate-700 dark:border-gray-800"
@@ -93,9 +93,7 @@ export default function OrderCard({ data, updateOrder }: Props) {
           </div>
         ))}
         <div className="mt-auto ml-auto p-1 rounded bg-green-600">
-          <Text>
-            total price:<b>{totalPrice}</b>
-          </Text>
+          <Text>total price:{String(totalPrice)}</Text>
         </div>
       </div>
       {/* <div className="flex items-center">
