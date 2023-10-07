@@ -18,26 +18,29 @@ type Props = {
   mutation: (value: Product, files: any) => Promise<void>;
 };
 
+const defaultForm = {
+  price: 0,
+  type: "",
+  brand: "",
+  images: [""],
+  name: "",
+  desc: "",
+  rating: 0,
+  params: [],
+};
+
 export default function FormAddItem({ loading = false, mutation }: Props) {
   const [files, setFiles] = useState(false);
-  const [form, setForm] = useState<Product>({
-    _id: "",
-    price: 0,
-    type: "",
-    brand: "",
-    images: [""],
-    name: "",
-    desc: "",
-    rating: 0,
-    params: [],
-  });
+  const [form, setForm] = useState<Product>(defaultForm);
 
   const [images, setImages] = useState([picture]);
 
   const desc = useAppSelector((store) => store.options.desc);
 
   const handlerFetch = async () => {
-    await mutation(form, files);
+    await mutation(form, files).then(() => {
+      setForm(defaultForm), setImages([picture]);
+    });
   };
 
   const handleSetForm = (value: {}) =>

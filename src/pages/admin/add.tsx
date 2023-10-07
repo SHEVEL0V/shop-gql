@@ -22,7 +22,8 @@ export default function AddProduct() {
       });
 
       console.log("Added product successfully");
-    } catch {
+    } catch (err) {
+      console.log(err);
       alert("error add products");
     }
   };

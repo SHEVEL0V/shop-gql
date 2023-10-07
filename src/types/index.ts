@@ -21,11 +21,11 @@ export type ItemParams = {
 };
 
 export type Product = {
-  _id: string;
+  _id?: string;
   price: number;
   type: string;
   brand: string;
-  images: [string];
+  images: string[];
   name: string;
   desc: string;
   rating: number;

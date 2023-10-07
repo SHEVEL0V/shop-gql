@@ -26,17 +26,26 @@ export const basketSlice = createSlice({
       state.data = [];
     },
 
-    removeBasketEl: (state, action: PayloadAction<{ id: string }>) => {
+    removeBasketEl: (
+      state,
+      action: PayloadAction<{ id: string | undefined }>
+    ) => {
       state.data = state.data.filter((el) => el._id !== action.payload.id);
     },
 
-    incrementsQty: (state, action: PayloadAction<{ id: string }>) => {
+    incrementsQty: (
+      state,
+      action: PayloadAction<{ id: string | undefined }>
+    ) => {
       const index = state.data.map((el) => el._id).indexOf(action.payload.id);
 
       state.data[index].qty += 1;
     },
 
-    decrementsQty: (state, action: PayloadAction<{ id: string }>) => {
+    decrementsQty: (
+      state,
+      action: PayloadAction<{ id: string | undefined }>
+    ) => {
       const { data } = state;
       const index = data.map((el) => el._id).indexOf(action.payload.id);
 
