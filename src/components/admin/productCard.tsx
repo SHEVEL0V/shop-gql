@@ -25,7 +25,7 @@ export default function ProductCardAdmin({ data, handleCheckBox }: Props) {
      dark:bg-slate-700 dark:border-gray-800"
     >
       <div onClick={handleNavigate} className="flex items-center">
-        <div>
+        <div className="mr-2">
           <Image
             src={data.images[0]}
             alt={data.name}
