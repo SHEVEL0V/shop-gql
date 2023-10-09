@@ -29,7 +29,7 @@ export default function CardBasket({ data }: Props) {
   const handleDeleteProduct = () => dispatch(removeBasketEl({ id }));
 
   return (
-    <div className="bg-slate-100 dark:bg-slate-600 rounded shadow  p-2 flex flex-wrap">
+    <div className="bg-slate-100 dark:bg-slate-600 rounded shadow  p-2 flex flex-wrap sm:flex-nowrap">
       <div className="flex">
         <div
           className="flex flex-col justify-between mr-1 items-center rounded-2xl bg-slate-200
