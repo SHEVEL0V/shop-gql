@@ -32,7 +32,7 @@ export default function Basket() {
         dispatch(removeBasket());
         toast.success("Order accepted");
       })
-      .catch((err) => toast.error(err));
+      .catch(() => toast.error("Please log in"));
   };
 
   return (
